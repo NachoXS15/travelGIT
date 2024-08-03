@@ -1,14 +1,13 @@
 import { NavLink } from 'react-router-dom'
 import logo from '../assets/logo.png'
+import DolarNow from './DolarNow'
 type props = React.PropsWithChildren<object>
 export default function Layout({ children }: props) {
     return (
         <>
             <div className='w-full min-h-screen flex flex-col justify-between items-centerx'>
                 <header className="w-full h-[80px] ">
-                    <div className='bg-bluemain text-center py-1'>
-                        <h2 className='text-white text-xl' style={{fontFamily: 'Mundial'}}>Precio Dolar Actual: $1450</h2>
-                    </div>
+                    <DolarNow />
                     <div className='flex justify-around items-center py-4'>
                         <img src={logo} width={150} alt="" />
                         <nav>
