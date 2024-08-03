@@ -1,5 +1,9 @@
+import Layout from "../components/Layout";
+
 export default function SinglePackage() {
   return (
-    <div>singlePackage</div>
+    <Layout>
+      <div>Paquete solo</div>
+    </Layout>
   )
 }

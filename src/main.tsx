@@ -20,7 +20,11 @@ const router = createBrowserRouter([
     element: <SinglePackage />
   },
   {
-    path: '/guide',
+    path: '/guias',
+    element: <Guide />
+  },
+  {
+    path: '/about',
     element: <Guide />
   }
 ])
