@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../assets/logo.png'
+import { CloseIcon, MenuIcon } from './Icons'
 
 export default function Header() {
     const [isClick, setIsClick] = useState(false)
@@ -21,34 +22,11 @@ export default function Header() {
                     <NavLink className="hover:scale-150 transition mx-5 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/about">Nosotros</NavLink>
                 </nav>
                 <div className='md:hidden flex items-center justify-center' onClick={toggleNavBar}>
-                    {isClick ? (<svg className="h-6 w-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="blue" >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-
-                    ) : <svg className="h-6 w-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="blue">
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>}
-
+                    {isClick ? <CloseIcon /> : <MenuIcon />}
                 </div>
             </div>
             {isClick && (
-                <div className='md:hidden shadow-2xl transition'>
+                <div className='md:hidden shadow-2xl z-40'>
                     <div className='flex flex-col '>
                         <NavLink className="hover:scale-105 transition my-2 mx-14 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/paquetes">Paquetes</NavLink>
                         <NavLink className="hover:scale-105 transition my-2 mx-14 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/guias">Guias</NavLink>
