@@ -9,7 +9,8 @@ export default {
       "bluemain": "#0A77BE",
       "bluesec": "#3C41B0",
       "white": "#fff",
-      "lightgray": "#d9d9d9"
+      "lightgray": "#d9d9d9",
+      "black": "#000"
     }
   },
   plugins: [],
