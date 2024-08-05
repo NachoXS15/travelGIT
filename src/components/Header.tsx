@@ -12,12 +12,14 @@ export default function Header() {
 
     return (
         <>
-            <div className='flex justify-between items-center py-4 md:py-5 px-7 md:justify-around'>
+            <div className='flex justify-between items-center py-4 md:py-4 px-7 md:justify-around select-none'>
                 <NavLink to="/">
                     <img src={logo} width={150} alt="" />
                 </NavLink>
                 <nav className='hidden md:block'>
                     <NavLink className="hover:scale-150 transition mx-5 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/paquetes">Paquetes</NavLink>
+                    <NavLink className="hover:scale-150 transition mx-5 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/guias">Guias</NavLink>
+                    <NavLink className="hover:scale-150 transition mx-5 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/about">Nosotros</NavLink>
                     <NavLink className="hover:scale-150 transition mx-5 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/guias">Guias</NavLink>
                     <NavLink className="hover:scale-150 transition mx-5 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/about">Nosotros</NavLink>
                 </nav>
@@ -26,15 +28,17 @@ export default function Header() {
                 </div>
             </div>
             {isClick && (
-                <div className='md:hidden shadow-2xl z-40'>
-                    <div className='flex flex-col '>
-                        <NavLink className="hover:scale-105 transition my-2 mx-14 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/paquetes">Paquetes</NavLink>
-                        <NavLink className="hover:scale-105 transition my-2 mx-14 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/guias">Guias</NavLink>
-                        <NavLink className="hover:scale-105 transition my-2 mx-14 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/about">Nosotros</NavLink>
+                <div className='md:hidden h-[250px] bottom-0 shadow-2xl z-40 transform transition-all ease-out'>
+                    <hr className='w-3/5 m-auto border-2 border-bluemain' />
+                    <div className='flex flex-col mt-3 '>
+                        <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/paquetes">Paquetes</NavLink>
+                        <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/guias">Guias</NavLink>
+                        <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/about">Nosotros</NavLink>
+                        <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/guias">Guias</NavLink>
+                        <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/about">Nosotros</NavLink>
                     </div>
                 </div>
             )}
-
         </>
     )
 }
