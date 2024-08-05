@@ -20,8 +20,8 @@ export default function Header() {
                     <NavLink className="hover:scale-150 transition mx-5 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/paquetes">Paquetes</NavLink>
                     <NavLink className="hover:scale-150 transition mx-5 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/guias">Guias</NavLink>
                     <NavLink className="hover:scale-150 transition mx-5 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/about">Nosotros</NavLink>
-                    <NavLink className="hover:scale-150 transition mx-5 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/guias">Guias</NavLink>
-                    <NavLink className="hover:scale-150 transition mx-5 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/about">Nosotros</NavLink>
+                    <NavLink className="hover:scale-150 transition mx-5 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/guias">Opiniones</NavLink>
+                    <NavLink className="hover:scale-150 transition mx-5 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/about">Contactanos</NavLink>
                 </nav>
                 <div className='md:hidden flex items-center justify-center' onClick={toggleNavBar}>
                     {isClick ? <CloseIcon /> : <MenuIcon />}
@@ -34,8 +34,8 @@ export default function Header() {
                         <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/paquetes">Paquetes</NavLink>
                         <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/guias">Guias</NavLink>
                         <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/about">Nosotros</NavLink>
-                        <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/guias">Guias</NavLink>
-                        <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/about">Nosotros</NavLink>
+                        <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/guias">Opiniones</NavLink>
+                        <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/about">Contactanos</NavLink>
                     </div>
                 </div>
             )}

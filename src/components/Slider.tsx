@@ -19,14 +19,14 @@ export default function Carousel({ images, text }: CarouselProps) {
     useEffect(() => {
         const interval = setInterval(() => {
             handleNext();
-        }, 7500);
+        }, 5000);
 
         return () => clearInterval(interval);
     })
 
     return (
         <div className="relative w-full h-[550px] overflow-hidden">
-            <div className="absolute inset-0 flex items-center justify-between px-4 z-10">
+            <div className="sm:hidden md:absolute md:inset-0 md:flex md:items-center md:justify-between md:px-4 md:z-10">
                 <button onClick={handlePrev} className="p-2 shadow bg-opacity-40 bg-white rounded-full hover:bg-opacity-100">
                     <LeftArrowIcon />
                 </button>
@@ -46,7 +46,7 @@ export default function Carousel({ images, text }: CarouselProps) {
                             }}
                         >
                             <div className="w-full h-full bg-black bg-opacity-45 flex justify-center items-center">
-                                <div className="text-white text-center w-3/5 text-4xl font-bold md:text-7xl md:w-3/5" style={{ fontFamily: 'Mundial' }}>
+                                <div className="text-white text-center text-4xl font-bold md:text-7xl md:w-3/5" style={{ fontFamily: 'Mundial' }}>
                                     {text[index]}
                                 </div>
                             </div>
