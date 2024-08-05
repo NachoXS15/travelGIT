@@ -1,7 +1,8 @@
 import DolarNow from './DolarNow'
+import Footer from './Footer'
 import Header from './Header'
-type props = React.PropsWithChildren<object>
 
+type props = React.PropsWithChildren<object>
 
 export default function Layout({ children }: props) {
     return (
@@ -12,9 +13,11 @@ export default function Layout({ children }: props) {
                     <Header />
                 </header>
                 {children}
-                <footer className='w-full h-[200px] bg-bluesec'>
-                    <h2>contact</h2>
-                </footer>
+                <Footer />
+                <div className='w-full text-center bg-bluesec'>
+                    <hr className='w-4/5 m-auto border bg-white text-white text-center' />
+                    <p className='text-white text-md py-4 font-semibold'>Copyright © 2024 TravelGIT | Todos los derechos reservados</p>                
+                </div>
             </div>
         </>
     )
