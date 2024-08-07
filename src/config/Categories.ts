@@ -1,6 +1,6 @@
 const categories: string[] = [
     "Turismo Nacional",
-    "Turismo Nacional",
+    "Turismo Internacional",
     "Excursiones",
 ]
 
