@@ -1,7 +1,7 @@
 export default interface PackageProps{
-    destiny: string,
-    price: number,
-    desc: string,
-    dateSalida: Date,
-    
+    id?: string
+    destino: string,
+    Descripcion?: string,
+    salida: string,
+    categoria?: string
 }

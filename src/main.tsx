@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-
+import '../src/config/FirebaseConfig.ts'
 
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Index from './pages/Index.tsx'

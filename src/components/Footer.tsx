@@ -1,5 +1,5 @@
 import logoBlanco from '../assets/logoblanco.png'
-import { Facebook, Instagram, Mail, Phone, Pin } from './Icons'
+import { Facebook, Instagram, Mail, Phone, Pin } from './ui/Icons'
 
 export default function Footer() {
     return (
