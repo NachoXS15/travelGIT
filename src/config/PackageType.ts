@@ -3,5 +3,6 @@ export default interface PackageProps{
     destino: string,
     Descripcion?: string,
     salida: string,
-    categoria?: string
+    categoria: string,
+    imgUrl: string
 }
