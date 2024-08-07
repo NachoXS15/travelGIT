@@ -42,7 +42,7 @@ export default function Footer() {
                 </div>
                 <div className='w-full text-center bg-bluesec mt-10'>
                     <hr className='w-4/5 m-auto border bg-white text-white text-center' />
-                    <div className='w-4/5 m-auto flex justify-between items-center'>
+                    <div className='w-4/5 m-auto flex flex-col justify-between items-center md:flex-row'>
                         <p className='text-white text-md py-4 font-medium'>Copyright © 2024 TravelGIT | Todos los derechos reservados</p>
                         <p className='text-white text-md py-4 font-medium'>Desarrolado por <a href="https://www.linkedin.com/in/nachoxs15/" className='font-bold hover:underline'>Ignacio Joaquín Pantoja</a></p>
 
