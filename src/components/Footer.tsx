@@ -8,7 +8,7 @@ export default function Footer() {
                 <div className='w-full md:flex flex-row'>
                     <div className='w-full flex flex-col justify-start m-0'>
                         <img src={logoBlanco} alt="" width={150} className='mt-4 mb-3' />
-                        <p className='text-white text-left w-80'>Somos una agencia de viajes riojana orientada a otorgar la mejor experiencia a nuestros viajeros.</p>
+                        <p className='text-white text-left w-80 text-wrap'>Somos una agencia de viajes riojana orientada a otorgar la mejor experiencia a nuestros viajeros.</p>
                         <div className='flex gap-4 mt-4'>
                             <a href="https://instagram.com"><Instagram /></a>
                             <a href="https://instagram.com"><Facebook /></a>
