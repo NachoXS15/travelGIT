@@ -10,7 +10,7 @@ export default function Packages() {
       <section className="w-full h-[350px] bg-cover bg-center"
         style={{ backgroundImage: `url("https://www.10wallpaper.com/wallpaper/1920x1080/1410/Best_Nature_Views-Scenery_HD_Wallpaper_1920x1080.jpg")` }}>
         <div className="w-full h-full flex justify-center items-center bg-bluesec bg-opacity-70">
-          <p className="text-white text-7xl font-semibold" style={{ fontFamily: 'Mundial' }}>PAQUETES</p>
+          <p className="text-white text-4xl font-semibold md:text-7xl" style={{ fontFamily: 'Mundial' }}>PAQUETES</p>
         </div>
       </section>
       <section className="w-full m-auto h-fit pt-5 pb-10 px-5">
