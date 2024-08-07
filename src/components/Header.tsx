@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../assets/logo.png'
-import { CloseIcon, MenuIcon } from './Icons'
+import { CloseIcon, MenuIcon } from './ui/Icons'
 
 export default function Header() {
     const [isClick, setIsClick] = useState(false)

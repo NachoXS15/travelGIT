@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { LeftArrowIcon, RightArrowIcon } from "./Icons"
+import { LeftArrowIcon, RightArrowIcon } from "./ui/Icons"
 
 interface CarouselProps {
     images: string[];
