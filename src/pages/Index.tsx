@@ -32,7 +32,7 @@ export default function Index() {
   return (
     <Layout>
       <main>
-        <section className="max-w-full h-fit">
+        <section className="max-w-full h-fit mb-5">
           <Slider images={Slides} text={Texts} />
         </section>
         <CardGroup />

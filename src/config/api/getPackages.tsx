@@ -3,9 +3,11 @@ import PackageProps from "../PackageType";
 import { getFirestore, getDocs, collection } from "firebase/firestore";
 import Card from "../../components/Card";
 import Loader from "../../components/ui/loaders/Loader";
+import categoryProp from "../CategoryProp";
 
-export default function GetPackages() {
+export default function GetPackages({categoryProp}: categoryProp) {
   const [packages, setPackages] = useState<PackageProps[]>([]);
+  const filteredCategory = categoryProp === "Todas" ? packages : packages.filter(pack => pack.categoria === categoryProp)
   const db = getFirestore();
   const fetchData = async () => {
     try {
@@ -26,9 +28,9 @@ export default function GetPackages() {
   
   return (
     <>
-      {packages && packages.length > 0 ? (
-        packages.map((pkg) => (
-          <Card key={pkg.id} salida={pkg.salida} destino={pkg.destino} imgUrl={pkg.imgUrl} categoria={pkg.categoria} />
+      {filteredCategory.length > 0 ? (
+        filteredCategory.map((pkg) => (
+          <Card key={pkg.id} id={pkg.id} salida={pkg.salida} destino={pkg.destino} imgUrl={pkg.imgUrl} categoria={pkg.categoria} />
         ))
       ) : (
         <Loader />
