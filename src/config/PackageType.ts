@@ -1,5 +1,5 @@
 export default interface PackageProps{
-    id?: string
+    id: string
     destino: string,
     Descripcion?: string,
     salida: string,
