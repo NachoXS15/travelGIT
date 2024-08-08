@@ -5,7 +5,7 @@ import Card from "../../components/Card";
 import Loader from "../../components/ui/loaders/Loader";
 import categoryProp from "../CategoryProp";
 
-export default function GetPackages({categoryProp}: categoryProp) {
+export default function GetPackages({ categoryProp }: categoryProp) {
   const [packages, setPackages] = useState<PackageProps[]>([]);
   const filteredCategory = categoryProp === "Todas" ? packages : packages.filter(pack => pack.categoria === categoryProp)
   const db = getFirestore();
@@ -25,7 +25,7 @@ export default function GetPackages({categoryProp}: categoryProp) {
   useEffect(() => {
     fetchData();
   }, []);
-  
+
   return (
     <>
       {filteredCategory.length > 0 ? (
@@ -33,7 +33,9 @@ export default function GetPackages({categoryProp}: categoryProp) {
           <Card key={pkg.id} id={pkg.id} salida={pkg.salida} destino={pkg.destino} imgUrl={pkg.imgUrl} categoria={pkg.categoria} />
         ))
       ) : (
-        <Loader />
+        <div className="w-full h-full flex items-center justify-center">
+          <Loader />
+        </div>
       )}
     </>
   )

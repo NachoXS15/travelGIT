@@ -10,8 +10,8 @@ export default function Footer() {
                         <img src={logoBlanco} alt="" width={150} className='mt-4 mb-3' />
                         <p className='text-white text-left w-80 text-wrap'>Somos una agencia de viajes riojana orientada a otorgar la mejor experiencia a nuestros viajeros.</p>
                         <div className='flex gap-4 mt-4'>
-                            <a href="https://instagram.com"><Instagram /></a>
-                            <a href="https://instagram.com"><Facebook /></a>
+                            <a href="https://www.instagram.com/travelgitoficial/"><Instagram /></a>
+                            <a href="https://www.facebook.com/travelgit"><Facebook /></a>
 
                         </div>
                     </div>
