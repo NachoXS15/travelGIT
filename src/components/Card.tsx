@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import PackageProps from "../config/PackageType"
+import {PackageProps} from "../config/types"
 import CategoryTag from "./ui/CategoryTag"
 export default function Card({ id, destino, salida, categoria, imgUrl }: PackageProps) {
   return (
