@@ -12,7 +12,7 @@ export default function Header() {
 
     return (
         <>
-            <div className='flex justify-between items-center py-4 md:py-4 px-7 md:justify-around select-none'>
+            <div className='flex justify-between items-center py-4 md:py-4 px-7 md:justify-around select-none drop-shadow-sm'>
                 <NavLink to="/">
                     <img src={logo} width={150} alt="" />
                 </NavLink>

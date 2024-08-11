@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import PackageProps from "../PackageType";
+import {PackageProps, categoryProp} from "../types";
 import { getFirestore, getDocs, collection } from "firebase/firestore";
 import Card from "../../components/Card";
 import Loader from "../../components/ui/loaders/Loader";
-import categoryProp from "../CategoryProp";
+
 
 export default function GetPackages({ categoryProp }: categoryProp) {
   const [packages, setPackages] = useState<PackageProps[]>([]);

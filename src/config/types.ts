@@ -1,4 +1,8 @@
-export default interface PackageProps{
+export interface categoryProp{
+    categoryProp: string
+}
+
+export interface PackageProps{
     id: string
     destino: string,
     Descripcion?: string,
