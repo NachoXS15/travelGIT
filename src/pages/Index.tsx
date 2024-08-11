@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import Slider from "../components/Slider";
-import PackageProps from "../config/PackageType";
+import {PackageProps} from "../config/types";
 import Card from "../components/Card";
 import { Slides, Texts } from "../config/IndexInfo";
 import { getFirestore, getDocs, collection } from 'firebase/firestore';

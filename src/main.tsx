@@ -8,6 +8,9 @@ import Index from './pages/Index.tsx'
 import Packages from './pages/Packages.tsx'
 import Guide from './pages/Guide.tsx'
 import SinglePackage from './pages/SinglePackage.tsx'
+import ContactUs from './pages/ContactUs.tsx'
+import About from './pages/About.tsx'
+import Opinions from './pages/Opinions.tsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -27,7 +30,15 @@ const router = createBrowserRouter([
   },
   {
     path: '/about',
-    element: <Guide />
+    element: <About />
+  },
+  {
+    path: '/contactanos',
+    element: <ContactUs />
+  },
+  {
+    path: '/opiniones',
+    element: <Opinions />
   }
 ])
 
