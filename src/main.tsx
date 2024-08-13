@@ -11,6 +11,7 @@ import SinglePackage from './pages/SinglePackage.tsx'
 import ContactUs from './pages/ContactUs.tsx'
 import About from './pages/About.tsx'
 import Opinions from './pages/Opinions.tsx'
+import Login from './pages/admin/Login.tsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
   {
     path: '/opiniones',
     element: <Opinions />
+  },
+  //secret post endpoint
+  {
+    path: '/admin/login',
+    element: <Login />
   }
 ])
 
