@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Header from "../../components/Header";
+import HeaderAdmin from "../../components/HeaderAdmin";
 
 export default function Login() {
 
@@ -15,8 +15,7 @@ export default function Login() {
 
     return (
         <>
-            <Header />
-            <hr className="w-4/5 m-auto border border-bluemain" />
+            <HeaderAdmin />
             <div className="w-full h-96 flex flex-col m-auto justify-center items-center" style={{fontFamily: 'Mundial'}}>
                 <form className="w-full md:w-2/6 px-5 h-fit py-10 m-auto gap-3 flex flex-col items-center justify-center" onSubmit={HandleSubmit}>
                     <div className="w-full flex flex-col items-start">
