@@ -18,7 +18,7 @@ export default function Packages() {
           <p className="text-white text-4xl font-semibold md:text-7xl" style={{ fontFamily: 'Mundial' }}>PAQUETES</p>
         </div>
       </section>
-      <section className="w-full m-auto h-fit pt-5 pb-10 px-5 flex flex-col justify-center items-center">
+      <section className="w-full m-auto h-fit pt-5 pb-10 md:px-5 flex flex-col justify-center items-center">
         <div className="mb-8 text-center">
           <h2 className="text-bluemain text-center text-4xl font-extrabold">ELEGÍ TU PRÓXIMO DESTINO</h2>
           <hr className='w-2/5 m-auto border text-bluesec text-center mt-4' />
