@@ -37,6 +37,10 @@ export default function SinglePackage() {
 		id ? fetchData(id) : console.log("No hay id");
 	}, [])
 
+	useEffect(() => {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}, [])
+
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		const formData = new FormData(e.currentTarget);
@@ -155,15 +159,15 @@ export default function SinglePackage() {
 												<input className="border-2 border-bluemain rounded px-3 h-9 text-xl" required type="number" name="personCant" placeholder="Introduzca" />
 											</div>
 											<div className="flex flex-col my-3">
-												<label htmlFor="">Cantidad de niños</label>
-												<input className="border-2 border-bluemain rounded px-3 h-9 text-xl" required type="number" name="kids" placeholder="Introduzca" />
+												<label htmlFor="">Cantidad de Adultos</label>
+												<input className="border-2 border-bluemain rounded px-3 h-9 text-xl" required type="number" name="adults" placeholder="Introduzca" />
 											</div>
 										</div>
 										<hr className="w-2/5 m-auto border border-bluemain mt-2 md:hidden" />
 										<div className="w-full md:w-1/2">
 											<div className="flex flex-col my-3">
-												<label htmlFor="">Cantidad de personas:</label>
-												<input className="border-2 border-bluemain rounded px-3 h-9 text-xl" required type="number" name="adults" placeholder="Introduzca" />
+												<label htmlFor="">Cantidad de niños:</label>
+												<input className="border-2 border-bluemain rounded px-3 h-9 text-xl" required type="number" name="kids" placeholder="Introduzca" />
 											</div>
 											<div className="flex flex-col my-3">
 												<label htmlFor="">¿Posee obra social o seguro?</label>
@@ -175,10 +179,10 @@ export default function SinglePackage() {
 											</div>
 										</div>
 									</div>
-								<div className="w-full md:w-3/5 flex flex-col items-center md:flex-row gap-2 py-2 m-auto mb-2">
-									<input type="submit" className="w-3/5 mx-2 bg-bluemain px-6 py-2 rounded text-white hover:bg-bluesec active:bg-bluesec" value={"Crear consulta"} />
-									<button className="w-3/5 mx-2 bg-darkgray px-6 py-2 rounded text-white hover:bg-red active:bg-red" onClick={handleModal}>Cancelar</button>
-								</div>
+									<div className="w-full md:w-3/5 flex flex-col items-center md:flex-row gap-2 py-2 m-auto mb-2">
+										<input type="submit" className="w-3/5 mx-2 bg-bluemain px-6 py-2 rounded text-white hover:bg-bluesec active:bg-bluesec" value={"Crear consulta"} />
+										<button className="w-3/5 mx-2 bg-darkgray px-6 py-2 rounded text-white hover:bg-red active:bg-red" onClick={handleModal}>Cancelar</button>
+									</div>
 								</form>
 							</div>
 						</div>
