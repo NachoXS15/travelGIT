@@ -19,6 +19,7 @@ export default function ContactUs() {
 	return (
 		<>
 			<Layout>
+				<hr className="w-4/5 m-auto border border-bluemain" />
 				<section className="w-full h-fit flex flex-col items-center mt-10" style={{ fontFamily: 'Mundial' }}>
 					<div className="mb-3 text-center">
 						<h2 className="text-bluemain text-center text-3xl font-extrabold">¿TENÉS DUDAS? ¡CONTACTANOS!</h2>
@@ -39,7 +40,7 @@ export default function ContactUs() {
 							<div className="w-full flex flex-col items-start md:w-1/2">
 								<label htmlFor="" className="text-nowrap">¿De donde nos consultas?</label>
 								<select name="provincia" id="provincias" className="w-full h-8 border-2 rounded-sm border-bluemain">
-									<option value="" disabled selected>Seleccioná tu provincia</option>
+									<option value="" disabled defaultChecked>Seleccioná tu provincia</option>
 									<option value="Buenos Aires">Buenos Aires</option>
 									<option value="Catamarca">Catamarca</option>
 									<option value="Chaco">Chaco</option>
@@ -79,23 +80,3 @@ export default function ContactUs() {
 		</>
 	)
 }
-
-{/* <div className="w-3/5 h-fit flex gap-5">
-							<div className=" w-1/2 flex flex-col items-start">
-								<label htmlFor="">Nombre y apellido</label>
-								<input
-									type="text"
-									className="w-full h-8 border-2 rounded-sm border-bluemain"
-									required
-								/>
-
-							</div>
-							<div className="w-1/2 flex flex-col items-start">
-								<label htmlFor="">Nombre y apellido</label>
-								<input
-									type="text"
-									className="w-full h-8 border-2 rounded-sm border-bluemain"
-									required
-								/>
-							</div>
-						</div> */}

@@ -36,7 +36,7 @@ export default function Packages() {
             ))}
           </div>
         </div>
-        <div className="flex flex-wrap items-center gap-5 m-auto md:w-8/12 justify-start md:gap-y-6 md:gap-x-2 md:px-12">
+        <div className="flex flex-wrap items-center gap-5 m-auto md:w-9/12 md:justify-start md:gap-y-6 md:gap-x-3 md:px-10">
           <GetPackages categoryProp={categorySelected} />
         </div>
       </section>

@@ -5,7 +5,7 @@ export interface categoryProp{
 export interface PackageProps{
     id: string
     destino: string,
-    Descripcion?: string,
+    Descripcion?: string[],
     salida: string,
     categoria: string,
     imgUrl: string
