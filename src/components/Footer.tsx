@@ -24,7 +24,7 @@ export default function Footer() {
                                 <h3>Galeria Susex Local 10, <br /> La Rioja, Argentina</h3>
                             </div>
                             <div className='flex gap-3 items-start'>
-                                <Mail />
+                                <Mail color='yellow' />
                                 <h3>travelgit@gmail.com</h3>
                             </div>
                             <div className='flex gap-3 items-start'>
