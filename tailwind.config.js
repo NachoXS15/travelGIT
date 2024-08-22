@@ -13,7 +13,8 @@ export default {
       "lightgray": "#d9d9d9",
       "black": "#000",
       "darkgray": "#8c8c8c",
-      "red": "#a0142e"
+      "red": "#a0142e",
+      "green": "#1f7b00"
     }
   },
   plugins: [],
