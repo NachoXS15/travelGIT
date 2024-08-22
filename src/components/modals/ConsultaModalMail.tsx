@@ -39,7 +39,7 @@ export default function ConsultaModalMail({ ModalOpen, pkgName, HandleModal }: C
         <>
             {isModalOpen && (
                 <>
-                    <div className="w-11/12 md:w-3/6 h-4/5 md:h-fit bg-white rounded-md m-auto overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none bg-cover bg-center focus:outline-none"
+                    <div className="w-11/12 md:w-7/12 h-4/5 md:h-fit bg-white rounded-md m-auto overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none bg-cover bg-center focus:outline-none"
                         style={{ fontFamily: "Mundial" }}
                     >
                         <div className="w-auto relative bg-cover bg-center flex flex-col items-center gap-5 px-10">
@@ -49,20 +49,32 @@ export default function ConsultaModalMail({ ModalOpen, pkgName, HandleModal }: C
                                 <h2 className="text-3xl text-center md:text-start font-medium">¿Cómo querés organizar tu viaje? Mail</h2>
                             </div>
                             <form ref={form} className="w-full flex flex-col md:px-5 gap-0 md:gap-5" onSubmit={handleSubmit}>
-                                <div className="w-full">
-                                    <div className="flex flex-col my-3">
-                                        <label htmlFor="name">¿Cómo te llamas?</label>
-                                        <input className="border-2 border-bluemain rounded px-3 h-9 text-xl" type="text" name="name" required placeholder="Introduzca" />
+                                <div className="w-full mb-2">
+                                    <div className="w-full flex flex-col md:flex-row md:gap-5">
+                                        <div className="w-full md:w-1/2 flex flex-col my-2">
+                                            <label htmlFor="name">¿Cómo te llamas?</label>
+                                            <input className="border-2 border-bluemain rounded px-3 h-9 text-xl" type="text" name="name" required placeholder="Introduzca..." />
+                                        </div>
+                                        <div className="w-full md:w-1/2 flex flex-col my-2">
+                                            <label htmlFor="name">Ingresá tu mail</label>
+                                            <input className="border-2 border-bluemain rounded px-3 h-9 text-xl" type="email" name="mail" required placeholder="Introduzca..." />
+                                        </div>
                                     </div>
                                     <input type="hidden" value={pkgName} name="pkg" />
-                                    <div className="flex flex-col my-3">
-                                        <label htmlFor="provincia">¿De dónde te comunicás?</label>
-                                        <select name="provincia" id="provincia" className="w-full h-8 border-2 rounded-sm border-bluemain" required>
-                                            <option value="" disabled defaultChecked>Seleccioná tu provincia</option>
-                                            <option value="Buenos Aires">Buenos Aires</option>
-                                            <option value="Catamarca">Catamarca</option>
-                                            <option value="Chaco">Chaco</option>
-                                        </select>
+                                    <div className="w-full flex flex-col md:flex-row md:gap-5">
+                                        <div className="w-full md:w-1/2 flex flex-col my-2">
+                                            <label htmlFor="name">Ingresá tu número</label>
+                                            <input className="border-2 border-bluemain rounded px-3 h-9 text-xl" type="number" name="phone" required placeholder="Introduzca..." />
+                                        </div>
+                                        <div className="w-full md:w-1/2 flex flex-col my-2">
+                                            <label htmlFor="provincia">¿De dónde te comunicás?</label>
+                                            <select name="provincia" id="provincia" className="w-full h-9 pl-3 border-2 rounded border-bluemain" required>
+                                                <option value="" disabled defaultChecked>Seleccioná tu provincia</option>
+                                                <option value="Buenos Aires">Buenos Aires</option>
+                                                <option value="Catamarca">Catamarca</option>
+                                                <option value="Chaco">Chaco</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <hr className="w-2/5 m-auto border border-bluemain mt-2" />

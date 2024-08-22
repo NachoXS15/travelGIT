@@ -52,7 +52,7 @@ export default function ConsultaModal({ ModalOpen, pkgName, HandleModal }: Consu
                                     </div>
                                     <div className="flex flex-col my-3">
                                         <label htmlFor="">¿De donde te comunicás?</label>
-                                        <select name="provincia" id="provincias" className="w-full h-8 border-2 rounded-sm border-bluemain" required>
+                                        <select name="provincia" id="provincias" className="w-full h-9 border-2 rounded px-2 border-bluemain" required>
                                             <option value="" disabled defaultChecked>Seleccioná tu provincia</option>
                                             <option value="Buenos Aires">Buenos Aires</option>
                                             <option value="Catamarca">Catamarca</option>

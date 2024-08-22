@@ -1,5 +1,5 @@
 import Layout from "../components/Layout";
-import { WhatsApp } from "../components/ui/Icons";
+import { Mail, WhatsApp } from "../components/ui/Icons";
 
 export default function ContactUs() {
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,15 +31,17 @@ export default function ContactUs() {
 								<label htmlFor="">Nombre y apellido</label>
 								<input
 									type="text"
-									className="w-full h-8 border-2 rounded-sm border-bluemain"
+									className="w-full h-9 px-2 border-2 rounded-sm border-bluemain"
 									required
-									name="nombre"
+									placeholder="Introduzca"
+									name="name"
 								/>
 
 							</div>
+							
 							<div className="w-full flex flex-col items-start md:w-1/2">
 								<label htmlFor="" className="text-nowrap">¿De donde nos consultas?</label>
-								<select name="provincia" id="provincias" className="w-full h-8 border-2 rounded-sm border-bluemain">
+								<select name="provincia" id="provincias" className="w-full h-9 border-2 rounded-sm border-bluemain">
 									<option value="" disabled defaultChecked>Seleccioná tu provincia</option>
 									<option value="Buenos Aires">Buenos Aires</option>
 									<option value="Catamarca">Catamarca</option>
@@ -67,13 +69,23 @@ export default function ContactUs() {
 								</select>
 							</div>
 						</div>
+						<div className="w-full flex flex-col items-start md:w-3/5">
+							<label htmlFor="">Ingrese su mail</label>
+							<input type="email" name="mail" required placeholder="Introduzca" className=" px-2 border-2 border-bluemain w-full h-9" />
+						</div>
 						<div className="w-full h-52 flex flex-col items-start md:w-3/5">
 							<label htmlFor="">Motivo de la consulta:</label>
 							<textarea name="consulta" id="" className="w-full h-full resize-none border-2 border-bluemain"></textarea>
 						</div>
-						<button type="submit" className="w-full md:w-3/5 h-10 rounded bg-bluesec text-white flex justify-center items-center ">
-							<p className="flex gap-2"><WhatsApp /><span>Consultar por WhatsApp</span></p>
-						</button>
+						<div className="w-full md:w-3/5 flex flex-col md:flex-row md:gap-2">
+							<button type="submit" className="w-full md:w-1/2 h-10 rounded bg-bluesec text-white flex justify-center items-center ">
+								<p className="flex gap-2"><WhatsApp /><span>Consultar por WhatsApp</span></p>
+							</button>
+							<button type="submit" className="w-full md:w-1/2 h-10 rounded bg-bluesec text-white flex justify-center items-center ">
+								<p className="flex gap-2"><Mail color="white" size={24} /><span>Consultar por Mail</span></p>
+							</button>
+
+						</div>
 					</form>
 				</section>
 			</Layout >
