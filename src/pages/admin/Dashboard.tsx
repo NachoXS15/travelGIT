@@ -3,6 +3,7 @@ import HeaderAdmin from "../../components/HeaderAdmin";
 import { PackageProps } from "../../config/types";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import CategoryTag from "../../components/ui/CategoryTag";
+import { Edit, Trash } from "../../components/ui/Icons";
 
 export default function Dashboard() {
   const [packages, setPackages] = useState<PackageProps[]>([])
@@ -28,23 +29,28 @@ export default function Dashboard() {
   return (
     <>
         <HeaderAdmin />
-        <div className="w-full bg-bluesec md:w-3/5 m-auto px-5 flex items-center flex-col" style={{fontFamily: "Mundial"}}>
-          <h2 className="text-white text-3xl my-3 font-semibold">Lista de paquetes</h2>
-          <div className="w-full flex flex-col gap-5 bg-bluemain">
+        <div className="w-full my-7 md:w-3/5 m-auto px-8 flex items-center flex-col" style={{fontFamily: "Mundial"}}>
+          <div className="w-full flex justify-between">
+            <h2 className="text-bluemain text-4xl my-3 font-semibold">Lista de paquetes</h2>
+            <button className="text-4xl text-bluemain">+</button>
+          </div>
+          <div className="w-full flex flex-col gap-5">
             {
               packages.map((pkg) => (
-                <div className="w-full py-2 bg-red flex gap-10">
-                  <div className="w-2/3 flex">
-                    <img src={pkg.imgUrl} width={50} alt="" />
+                <div className="w-full py-4 px-7 rounded-2xl bg-lightgray shadow-lg flex flex-col md:flex-row justify-between gap-10">
+                  <div className="flex flex-col md:flex-row items-start md:items-center gap-2">
+                    <img src={pkg.imgUrl[0]} className="w-full md:w-52 rounded-lg" alt="" />
                     <div>
-                      <h2>{pkg.destino}</h2>
+                      <h2 className="text-4xl font-medium">{pkg.destino}</h2>
                       <CategoryTag categoria={pkg.categoria} />
-                  
                     </div>
+                    {/* <div>
+                      promocionado
+                    </div> */}
                   </div>
-                  <div className="w-1/3">
-                    <button>asd</button>
-                    <button>asd</button>
+                  <div className="flex justify-end gap-5">
+                    <button className="hover:scale-110 transition"><Edit /></button>
+                    <button className="hover:scale-110 transition"><Trash /></button>
                   </div>
                 </div>
               ))

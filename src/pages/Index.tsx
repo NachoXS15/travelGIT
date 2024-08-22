@@ -44,7 +44,7 @@ export default function Index() {
           <div className="flex flex-wrap items-center gap-5 m-auto md:w-4/5 justify-center md:gap-7">
             {packages && packages.length > 0 ? (
               packages.slice(0, 3).map((pkg) => (
-                <Card key={pkg.id} id={pkg.id} salida={pkg.salida} destino={pkg.destino} imgUrl={pkg.imgUrl} categoria={pkg.categoria} />
+                <Card key={pkg.id} id={pkg.id} salida={pkg.salida} destino={pkg.destino} isPromoted={pkg.isPromoted} imgUrl={pkg.imgUrl} categoria={pkg.categoria} />
               ))
             ) : (
               <Loader />

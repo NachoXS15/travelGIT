@@ -10,8 +10,8 @@ export default function Footer() {
                         <img src={logoBlanco} alt="" width={150} className='mt-4 mb-3' />
                         <p className='text-white text-left w-80 text-wrap'>Somos una agencia de viajes riojana orientada a otorgar la mejor experiencia a nuestros viajeros.</p>
                         <div className='flex gap-4 mt-4'>
-                            <a className='hover:scale-1 transition' href="https://www.instagram.com/travelgitoficial/"><Instagram /></a>
-                            <a className='hover:scale-1 transition' href="https://www.facebook.com/travelgit"><Facebook /></a>
+                            <a className='hover:scale-110 transition' href="https://www.instagram.com/travelgitoficial/"><Instagram /></a>
+                            <a className='hover:scale-110 transition' href="https://www.facebook.com/travelgit"><Facebook /></a>
 
                         </div>
                     </div>
@@ -24,7 +24,7 @@ export default function Footer() {
                                 <h3>Galeria Susex Local 10, <br /> La Rioja, Argentina</h3>
                             </div>
                             <div className='flex gap-3 items-start'>
-                                <Mail color='yellow' />
+                                <Mail color='yellow' size={32} />
                                 <h3>travelgit@gmail.com</h3>
                             </div>
                             <div className='flex gap-3 items-start'>

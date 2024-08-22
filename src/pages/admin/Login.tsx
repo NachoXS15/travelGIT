@@ -2,10 +2,8 @@ import { NavLink } from "react-router-dom";
 import HeaderAdmin from "../../components/HeaderAdmin";
 
 export default function Login() {
-
     const HandleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         const formData = new FormData(e.currentTarget)
-
         const user = formData.get("user")
         const pass = formData.get("pass")
 

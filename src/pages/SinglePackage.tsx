@@ -59,7 +59,7 @@ export default function SinglePackage() {
 						<div className="w-full h-fit px-5 my-5 md:w-4/5 md:m-auto md:my-10 md:flex flex-col md:justify-center md:items-center" style={{ fontFamily: 'Mundial' }}>
 							<div className="md:w-4/5 flex flex-col md:flex-row-reverse">
 								<div className="-w-full md:w-1/2">
-									<img src={pkg.imgUrl} className="rounded-md" alt="" />
+									<img src={pkg.imgUrl[0]} className="rounded-md" alt="" />
 								</div>
 								<div className="w-1/2">
 									<div>
@@ -83,14 +83,12 @@ export default function SinglePackage() {
 									</div>
 								</div>
 							</div>
-							<div className="w-4/5 flex gap-10">
-								<button type="submit" onClick={handleModalWsp} className="w-1/2 md:w-3/5 h-10 mt-5 rounded bg-bluesec text-white flex justify-center gap-2 items-center hover:bg-bluemain">
-									<WhatsApp />
-									<span className="text-2xl">Consultar por WhatsApp</span>
+							<div className="w-full md:w-4/5 flex flex-col gap-2 md:flex-row md:gap-10 mt-5">
+								<button type="submit" onClick={handleModalWsp} className="w-full md:w-1/2 h-10 rounded bg-bluesec text-white flex justify-center items-center ">
+									<p className="flex gap-2"><WhatsApp /><span>Consultar por WhatsApp</span></p>
 								</button>
-								<button type="submit" onClick={handleModalMail} className="w-1/2 md:w-3/5 h-10 mt-5 rounded bg-bluesec text-white flex justify-center gap-2 items-center hover:bg-bluemain">
-									<Mail color="white" />
-									<span className="text-2xl">Consultar por Mail</span>
+								<button type="submit" className="w-full md:w-1/2 h-10 rounded bg-bluesec text-white flex justify-center items-center ">
+									<p className="flex gap-2"><Mail color="white" size={24} /><span>Consultar por Email</span></p>
 								</button>
 
 							</div>
