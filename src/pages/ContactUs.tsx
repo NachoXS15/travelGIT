@@ -1,20 +1,41 @@
+import { useRef } from "react";
 import Layout from "../components/Layout";
 import { Mail, WhatsApp } from "../components/ui/Icons";
+import emailjs from '@emailjs/browser';
 
 export default function ContactUs() {
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		const formData = new FormData(e.currentTarget)
 
-		const nombre = formData.get("nombre")
-		const consulta = formData.get("consulta")
-		const provincia = formData.get("provincia")
+	const form = useRef<HTMLFormElement>(null);
+
+	const handleWhatsAppSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+		e.preventDefault();
+		const formData = new FormData(form.current!);
+
+		const nombre = formData.get("nombre");
+		const consulta = formData.get("consulta");
+		const provincia = formData.get("provincia");
 
 		const message = `¡Hola! Mi nombre es ${nombre}, me comunico desde ${provincia}, el motivo de mi consulta es: ${consulta}. ¡Espero su respuesta!`;
 		const phoneNumber = "543804325711";
 		window.open(`https://wa.me/${phoneNumber}?text=${message}`);
-	}
+	};
 
+	const handleMailSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+		e.preventDefault();
+		if (form.current) {
+			emailjs.sendForm("service_4p5hvnx", "template_7xy9vxc", form.current, {
+				publicKey: "21qM3RsP_rUKeFtaj"
+			})
+				.then(
+					() => {
+						console.log('Mail enviado');
+					},
+					(error) => {
+						console.log('Mail no enviado: ', error.text);
+					},
+				);
+		}
+	};
 
 	return (
 		<>
@@ -25,23 +46,21 @@ export default function ContactUs() {
 						<h2 className="text-bluemain text-center text-3xl font-extrabold">¿TENÉS DUDAS? ¡CONTACTANOS!</h2>
 						<hr className='w-2/5 m-auto border text-bluesec text-center mt-4' />
 					</div>
-					<form action="" className="w-full px-5 h-fit mb-10 flex flex-col items-center justify-center gap-4 md:w-4/5" onSubmit={handleSubmit}>
-						<div className=" w-full md:w-3/5 flex-col md:flex-row h-fit flex gap-5">
+					<form ref={form} className="w-full px-5 h-fit mb-10 flex flex-col items-center justify-center gap-4 md:w-4/5">
+						<div className="w-full md:w-3/5 flex-col md:flex-row h-fit flex gap-5">
 							<div className="w-full flex flex-col items-start md:w-1/2">
-								<label htmlFor="">Nombre y apellido</label>
+								<label htmlFor="nombre">Nombre y apellido</label>
 								<input
 									type="text"
 									className="w-full h-9 px-2 border-2 rounded-sm border-bluemain"
 									required
 									placeholder="Introduzca"
-									name="name"
+									name="nombre"
 								/>
-
 							</div>
-							
 							<div className="w-full flex flex-col items-start md:w-1/2">
-								<label htmlFor="" className="text-nowrap">¿De donde nos consultas?</label>
-								<select name="provincia" id="provincias" className="w-full h-9 border-2 rounded-sm border-bluemain">
+								<label htmlFor="provincia" className="text-nowrap">¿De donde nos consultas?</label>
+								<select name="provincia" id="provincia" required className="w-full h-9 border-2 rounded-sm border-bluemain">
 									<option value="" disabled defaultChecked>Seleccioná tu provincia</option>
 									<option value="Buenos Aires">Buenos Aires</option>
 									<option value="Catamarca">Catamarca</option>
@@ -69,26 +88,45 @@ export default function ContactUs() {
 								</select>
 							</div>
 						</div>
-						<div className="w-full flex flex-col items-start md:w-3/5">
-							<label htmlFor="">Ingrese su mail</label>
-							<input type="email" name="mail" required placeholder="Introduzca" className=" px-2 border-2 border-bluemain w-full h-9" />
+						<div className="w-full md:w-3/5 flex-col md:flex-row h-fit flex gap-5">
+							<div className="w-full flex flex-col items-start md:w-1/2">
+								<label htmlFor="nombre">Introduzca su mail</label>
+								<input
+									type="email"
+									className="w-full h-9 px-2 border-2 rounded-sm border-bluemain"
+									required
+									placeholder="Introduzca"
+									name="mail"
+								/>
+							</div>
+							<div className="w-full flex flex-col items-start md:w-1/2">
+								<label htmlFor="nombre">Introduzca su celular</label>
+								<input
+									type="number"
+									className="w-full h-9 px-2 border-2 rounded-sm border-bluemain"
+									required
+									placeholder="Introduzca"
+									name="number"
+								/>
+							</div>
+							
 						</div>
+						
 						<div className="w-full h-52 flex flex-col items-start md:w-3/5">
-							<label htmlFor="">Motivo de la consulta:</label>
-							<textarea name="consulta" id="" className="w-full h-full resize-none border-2 border-bluemain"></textarea>
+							<label htmlFor="consulta">Motivo de la consulta:</label>
+							<textarea name="consulta" id="consulta" required className="w-full h-full resize-none border-2 border-bluemain"></textarea>
 						</div>
 						<div className="w-full md:w-3/5 flex flex-col md:flex-row md:gap-2">
-							<button type="submit" className="w-full md:w-1/2 h-10 rounded bg-bluesec text-white flex justify-center items-center ">
+							<button type="button" onClick={handleWhatsAppSubmit} className="w-full md:w-1/2 h-10 rounded bg-bluesec text-white flex justify-center items-center">
 								<p className="flex gap-2"><WhatsApp /><span>Consultar por WhatsApp</span></p>
 							</button>
-							<button type="submit" className="w-full md:w-1/2 h-10 rounded bg-bluesec text-white flex justify-center items-center ">
+							<button type="button" onClick={handleMailSubmit} className="w-full md:w-1/2 h-10 rounded bg-bluesec text-white flex justify-center items-center">
 								<p className="flex gap-2"><Mail color="white" size={24} /><span>Consultar por Mail</span></p>
 							</button>
-
 						</div>
 					</form>
 				</section>
-			</Layout >
+			</Layout>
 		</>
-	)
+	);
 }

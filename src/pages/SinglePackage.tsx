@@ -90,7 +90,6 @@ export default function SinglePackage() {
 								<button type="submit" onClick={handleModalMail} className="w-full md:w-1/2 h-10 rounded bg-bluesec text-white flex justify-center items-center ">
 									<p className="flex gap-2"><Mail color="white" size={24} /><span>Consultar por Email</span></p>
 								</button>
-
 							</div>
 						</div>
 					</>
