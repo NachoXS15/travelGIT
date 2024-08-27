@@ -65,8 +65,8 @@ export default function SinglePackage() {
 									<div>
 										<h1 className="uppercase font-bold text-5xl mt-3" style={{ color: '#181818' }}>{pkg.destino}</h1>
 										<CategoryTag categoria={pkg.categoria} />
-
 									</div>
+									<h2 className="text-2xl font-bold mt-3">Salida: <span className="font-medium">{pkg.salida}</span></h2>
 									<div className="w-full mt-4">
 										<hr className="w-2/5 border border-bluemain" />
 										<h2 className="font-semibold text-2xl mt-4">Incluye:</h2>

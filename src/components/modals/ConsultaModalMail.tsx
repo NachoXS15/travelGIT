@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import emailjs from '@emailjs/browser';
+import { Toaster, toast } from 'sonner'
 
 type ConsultaModal = {
     ModalOpen: boolean,
@@ -26,10 +27,16 @@ export default function ConsultaModalMail({ ModalOpen, pkgName, HandleModal }: C
             })
                 .then(
                     () => {
-                        console.log('SUCCESS!');
+                        const promise = () => new Promise((resolve) => setTimeout(() => resolve({ name: 'Sonner' }), 2000));
+                        toast.promise(promise, {
+                            loading: 'Loading...',
+                            success: "Mail enviado",
+                            error: 'Mail no enviado',
+                        });
+                        setIsModalOpen(false)
                     },
                     (error) => {
-                        console.log('FAILED...', error.text);
+                        console.log('Mail no enviado: ', error.text);
                     },
                 );
         }
@@ -135,6 +142,7 @@ export default function ConsultaModalMail({ ModalOpen, pkgName, HandleModal }: C
                     <div className="opacity-50 fixed inset-0 z-40 bg-black"></div>
                 </>
             )}
+            <Toaster richColors expand={false} closeButton />
         </>
     );
 }
