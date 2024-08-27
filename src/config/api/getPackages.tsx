@@ -30,7 +30,7 @@ export default function GetPackages({ categoryProp }: categoryProp) {
     <>
       {filteredCategory.length > 0 ? (
         filteredCategory.map((pkg) => (
-          <Card key={pkg.id} id={pkg.id} salida={pkg.salida} destino={pkg.destino} imgUrl={pkg.imgUrl} categoria={pkg.categoria} />
+          <Card key={pkg.id} id={pkg.id} isPromoted={pkg.isPromoted} salida={pkg.salida} destino={pkg.destino} imgUrl={pkg.imgUrl} categoria={pkg.categoria} />
         ))
       ) : (
         <div className="w-full h-full flex items-center justify-center">

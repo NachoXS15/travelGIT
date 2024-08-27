@@ -8,5 +8,6 @@ export interface PackageProps{
     Descripcion?: string[],
     salida: string,
     categoria: string,
-    imgUrl: string
+    imgUrl: string[],
+    isPromoted: boolean
 }

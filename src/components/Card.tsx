@@ -6,7 +6,7 @@ export default function Card({ id, destino, salida, categoria, imgUrl }: Package
   return (
     <div style={{ fontFamily: 'Mundial' }} className="flex justify-between flex-col w-full rounded-lg h-fit md:h-96 shadow-2xl p-5 bg-lightgray md:w-72 hover:border-bluemain">
       <div>
-        <img src={imgUrl ? imgUrl : "https://fondosmil.co/fondo/2257.jpg"} className="w-full h-full aspect-video md:h-max" alt="" />
+        <img src={imgUrl[0]} className="w-full h-full aspect-video md:h-max" alt="" />
         <h1 className="font-bold text-2xl uppercase mt-3" >{destino}</h1>
         <CategoryTag categoria={categoria} />
         <p className="font-light mt-1">Salida: {salida}</p>
