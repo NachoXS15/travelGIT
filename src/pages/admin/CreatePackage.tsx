@@ -109,16 +109,15 @@ export default function CreatePackage({ ModalOpen, HandleModal }: addProps) {
                                     <h2 className="text-4xl mb-2">Crear paquete</h2>
                                     <hr className="w-full border border-bluemain" />
                                 </div>
-                                <button className="text-3xl text-darkgray rounded hover:scale-105 transition" onClick={HandleModal}>X</button>
                             </div>
                         </div>
-                        <form action="" className="w-full h-full flex flex-col md:px-10 gap-0 justify-between" onSubmit={handleSubmit}>
-                            <div className="w-full flex gap-10">
-                                <div className="w-1/2 flex flex-col my-3">
+                        <form action="" className="w-full h-full flex flex-col px-7 md:px-10 gap-0 justify-between" onSubmit={handleSubmit}>
+                            <div className="w-full flex flex-col md:flex-row gap-3 md:gap-10">
+                                <div className="w-full md:w-1/2 flex flex-col md:my-3">
                                     <label htmlFor="">Nombre del destino</label>
                                     <input className="border-2 border-bluemain rounded px-3 h-9 text-xl" type="text" name="destino" required placeholder="Introduzca" />
                                 </div>
-                                <div className="w-1/2 flex flex-col my-3">
+                                <div className="w-full md:w-1/2 flex flex-col md:my-3">
                                     <label htmlFor="">Categoria</label>
                                     <select name="categoria" id="" required className="border-2 border-bluemain rounded px-3 h-9 text-xl ">
                                         <option value="" disabled defaultChecked className="text-darkgray">Seleccione</option>
@@ -136,11 +135,11 @@ export default function CreatePackage({ ModalOpen, HandleModal }: addProps) {
                                     <input className="border-2 border-bluemain rounded px-3 h-9 text-xl" required type="text" name="salida" placeholder="Introduzca" />
                                 </div>
                             </div>
-                            <div className="w-full flex gap-8">
-                                <div className="w-full flex flex-col my-3">
+                            <div className="w-full flex flex-col md:flex-row gap-3 md:gap-8">
+                                <div className="w-full flex flex-col md:my-3">
                                     {
                                         descItems.map((item, i) => (
-                                            <div key={i}>
+                                            <div key={i} className="w-full">
                                                 <label htmlFor="">Inserte descripción</label>
                                                 <div className="flex items-center gap-2">
                                                     <input className=" w-full border-2 border-bluemain rounded px-3 h-9 text-xl" onChange={(e) => handleInputChange(i, e.target.value)} required type="text" name="desc" value={item.item} placeholder="Introduzca" />
@@ -151,7 +150,7 @@ export default function CreatePackage({ ModalOpen, HandleModal }: addProps) {
                                         ))
                                     }
                                 </div>
-                                <div className="w-full flex flex-col my-3">
+                                <div className="w-full flex flex-col md:my-3">
                                     {
                                         imgItems.map((items, i) => (
                                             <div key={i}>

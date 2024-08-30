@@ -67,7 +67,7 @@ export default function Dashboard() {
   return (
     <>
       <HeaderAdmin />
-      <div className="w-full my-7 md:w-4/5 m-auto flex items-center flex-col" style={{ fontFamily: "Mundial" }}>
+      <div className="w-full my-7 px-5 md:w-4/5 m-auto flex items-center flex-col" style={{ fontFamily: "Mundial" }}>
         <div className="w-full flex justify-between">
           <h2 className="text-bluemain text-3xl my-3 font-semibold">Lista de paquetes</h2>
           <button className="text-4xl text-bluemain hover:scale-110 transition" onClick={openCreateModal}>+</button>
