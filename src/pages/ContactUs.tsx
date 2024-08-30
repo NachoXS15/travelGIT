@@ -2,6 +2,7 @@ import { useRef } from "react";
 import Layout from "../components/Layout";
 import { Mail, WhatsApp } from "../components/ui/Icons";
 import emailjs from '@emailjs/browser';
+import { Toaster, toast } from 'sonner'
 
 export default function ContactUs() {
 
@@ -28,7 +29,12 @@ export default function ContactUs() {
 			})
 				.then(
 					() => {
-						console.log('Mail enviado');
+						const promise = () => new Promise((resolve) => setTimeout(() => resolve({ name: 'Sonner' }), 2000));
+						toast.promise(promise, {
+							loading: 'Loading...',
+							success: "Mail enviado",
+							error: 'Mail no enviado',
+						});
 					},
 					(error) => {
 						console.log('Mail no enviado: ', error.text);
@@ -109,9 +115,9 @@ export default function ContactUs() {
 									name="number"
 								/>
 							</div>
-							
+
 						</div>
-						
+
 						<div className="w-full h-52 flex flex-col items-start md:w-3/5">
 							<label htmlFor="consulta">Motivo de la consulta:</label>
 							<textarea name="consulta" id="consulta" required className="w-full h-full resize-none border-2 border-bluemain"></textarea>
@@ -126,6 +132,7 @@ export default function ContactUs() {
 						</div>
 					</form>
 				</section>
+				<Toaster richColors expand={false} closeButton/>
 			</Layout>
 		</>
 	);

@@ -29,6 +29,8 @@ export default function Index() {
     fetchData();
   }, []);
 
+  const promotedPackages = packages.filter(item => item.isPromoted)
+
   return (
     <Layout>
       <main>
@@ -42,8 +44,8 @@ export default function Index() {
             <hr className='w-2/5 m-auto border text-bluesec text-center mt-4' />
           </div>
           <div className="flex flex-wrap items-center gap-5 m-auto md:w-4/5 justify-center md:gap-7">
-            {packages && packages.length > 0 ? (
-              packages.slice(0, 3).map((pkg) => (
+            {promotedPackages && promotedPackages.length > 0 ? (
+              promotedPackages.slice(0, 3).map((pkg) => (
                 <Card key={pkg.id} id={pkg.id} salida={pkg.salida} destino={pkg.destino} isPromoted={pkg.isPromoted} imgUrl={pkg.imgUrl} categoria={pkg.categoria} />
               ))
             ) : (
