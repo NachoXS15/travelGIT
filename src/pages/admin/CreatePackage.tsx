@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import categories from "../../config/Categories";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 type addProps = {
     ModalOpen: boolean,
