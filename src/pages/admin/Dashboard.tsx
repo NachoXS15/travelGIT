@@ -16,6 +16,7 @@ export default function Dashboard() {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [selectedID, setSelectedID] = useState<string | nullw>("")
   const db = getFirestore();
   // const navigate = useNavigate()
 
@@ -36,7 +37,8 @@ export default function Dashboard() {
     setCreateModalOpen(!createModalOpen);
   }
 
-  const openDeleteModal = () => {
+  const openDeleteModal = (id: string | null = null) => {
+    setSelectedID(id)
     setDeleteModalOpen(!deleteModalOpen);
   }
 
@@ -46,7 +48,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [packages]);
 
   // const auth = getAuth();
   // useEffect(() => {
@@ -65,10 +67,10 @@ export default function Dashboard() {
   return (
     <>
       <HeaderAdmin />
-      <div className="w-full my-7 md:w-3/5 m-auto px-8 flex items-center flex-col" style={{ fontFamily: "Mundial" }}>
+      <div className="w-full my-7 md:w-4/5 m-auto flex items-center flex-col" style={{ fontFamily: "Mundial" }}>
         <div className="w-full flex justify-between">
           <h2 className="text-bluemain text-3xl my-3 font-semibold">Lista de paquetes</h2>
-          <button className="text-4xl text-bluemain" onClick={openCreateModal}>+</button>
+          <button className="text-4xl text-bluemain hover:scale-110 transition" onClick={openCreateModal}>+</button>
         </div>
         <div className="w-full flex flex-col gap-5">
           {
@@ -83,8 +85,8 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <div className="flex justify-end gap-5">
-                  <button onClick={openEditModal} className="hover:scale-110 transition"><Edit /></button>
-                  <button onClick={openDeleteModal} className="hover:scale-110 transition"><Trash /></button>
+                  <button onClick={() => openEditModal(pkg.id)} className="hover:scale-110 transition"><Edit /></button>
+                  <button onClick={() => openDeleteModal(pkg.id)} className="hover:scale-110 transition"><Trash /></button>
                 </div>
               </div>
 
@@ -101,7 +103,7 @@ export default function Dashboard() {
         createModalOpen && <CreatePackage HandleModal={openCreateModal} ModalOpen={createModalOpen} />
       }
       {
-        deleteModalOpen && <DeletePackage />
+        deleteModalOpen && <DeletePackage id={selectedID} HandleModal={openDeleteModal} ModalOpen={deleteModalOpen} />
       }
     </>
   )
