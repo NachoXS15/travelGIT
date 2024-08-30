@@ -16,7 +16,7 @@ export default function Dashboard() {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-  const [selectedID, setSelectedID] = useState<string | nullw>("")
+  const [selectedID, setSelectedID] = useState<string>("")
   const db = getFirestore();
   // const navigate = useNavigate()
 
@@ -37,13 +37,14 @@ export default function Dashboard() {
     setCreateModalOpen(!createModalOpen);
   }
 
-  const openDeleteModal = (id: string | null = null) => {
+  const openDeleteModal = (id: string = "") => {
     setSelectedID(id)
     setDeleteModalOpen(!deleteModalOpen);
   }
 
-  const openEditModal = () => {
+  const openEditModal = (id: string) => {
     setEditModalOpen(!editModalOpen);
+    setSelectedID(id)
   }
 
   useEffect(() => {
