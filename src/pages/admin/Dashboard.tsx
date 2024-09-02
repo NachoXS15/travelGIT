@@ -8,6 +8,7 @@ import Loader from "../../components/ui/loaders/Loader";
 import PromotedTag from "../../components/ui/PromotedTag";
 import CreatePackage from "./CreatePackage";
 import DeletePackage from "./DeletePackage";
+import EditPackage from "./EditPackage";
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
 // import { useNavigate } from "react-router-dom";
 
@@ -105,6 +106,9 @@ export default function Dashboard() {
       }
       {
         deleteModalOpen && <DeletePackage id={selectedID} HandleModal={openDeleteModal} ModalOpen={deleteModalOpen} />
+      }
+      {
+        editModalOpen && <EditPackage id={selectedID} HandleModal={openEditModal} ModalOpen={editModalOpen} />
       }
     </>
   )
