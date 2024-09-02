@@ -57,11 +57,11 @@ export default function SinglePackage() {
 					<>
 						<hr className="w-4/5 m-auto border border-bluemain" />
 						<div className="w-full h-fit px-5 my-5 md:w-5/5 md:m-auto md:my-10 md:flex flex-col md:justify-center md:items-center" style={{ fontFamily: 'Mundial' }}>
-							<div className="md:w-4/5 flex flex-col gap-20 md:flex-row-reverse">
+							<div className="md:w-4/5 flex flex-col md:gap-20 md:flex-row-reverse">
 								<div className="-w-full md:w-1/2">
 									<img src={pkg.imgUrl[0]} className="rounded-md" alt="" />
 								</div>
-								<div className="w-1/2">
+								<div className="w-full md:w-1/2">
 									<div>
 										<h1 className="uppercase font-bold text-5xl mt-3" style={{ color: '#181818' }}>{pkg.destino}</h1>
 										<CategoryTag categoria={pkg.categoria} />
