@@ -27,7 +27,7 @@ export default function DeletePackage({ ModalOpen, HandleModal, id }: deleteProp
             HandleModal()
             console.log("documento eliminado");
             
-        } catch (error) {
+        } catch (error) { 
             console.log("error: ", error);
         }
     }

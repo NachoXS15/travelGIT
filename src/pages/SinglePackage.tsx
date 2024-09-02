@@ -56,8 +56,8 @@ export default function SinglePackage() {
 				pkg ? (
 					<>
 						<hr className="w-4/5 m-auto border border-bluemain" />
-						<div className="w-full h-fit px-5 my-5 md:w-4/5 md:m-auto md:my-10 md:flex flex-col md:justify-center md:items-center" style={{ fontFamily: 'Mundial' }}>
-							<div className="md:w-4/5 flex flex-col md:flex-row-reverse">
+						<div className="w-full h-fit px-5 my-5 md:w-5/5 md:m-auto md:my-10 md:flex flex-col md:justify-center md:items-center" style={{ fontFamily: 'Mundial' }}>
+							<div className="md:w-4/5 flex flex-col gap-20 md:flex-row-reverse">
 								<div className="-w-full md:w-1/2">
 									<img src={pkg.imgUrl[0]} className="rounded-md" alt="" />
 								</div>
