@@ -43,7 +43,7 @@ export default function Dashboard() {
     setDeleteModalOpen(!deleteModalOpen);
   }
 
-  const openEditModal = (id: string) => {
+  const openEditModal = (id: string = "") => {
     setEditModalOpen(!editModalOpen);
     setSelectedID(id)
   }
