@@ -3,13 +3,19 @@ import Layout from "../components/Layout";
 import { Compass } from "../components/ui/Icons";
 import GetPackages from "../config/api/getPackages";
 import categories from "../config/Categories";
+import { useParams } from "react-router";
+
 
 export default function Packages() {
-  const [categorySelected, setCategorySelected] = useState<string>("Todas")
-
+  //revisa si viene una categoria por parametros y la asigna, si no existe, se utiliza "Todas"
+  const {id} = useParams();
+  const [word1, word2] = (id?.split(/(?=[A-Z])/)) ?? [];
+  const categoryPassed = word1 && word2 ? `${word1} ${word2}` : word1 ?? "";
+  const [categorySelected, setCategorySelected] = useState<string>(categoryPassed || "Todas")
   const handleCategory = (c: string) => {
     setCategorySelected(c)
   }
+
   return (
     <Layout>
       <section className="w-full h-[350px] bg-cover bg-center"

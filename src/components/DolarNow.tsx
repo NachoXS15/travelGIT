@@ -16,7 +16,7 @@ export default function DolarNow() {
 
 	return (
 		<div className='bg-bluemain text-center py-1'>
-			<h2 className='text-white text-xl' style={{ fontFamily: 'Mundial' }}>{dolarPrice ? `Precio Dolar Oficial:  $${dolarPrice.compra}` : "Cargando..."}</h2>
+			<h2 className='text-white text-xl' style={{ fontFamily: 'Mundial' }}>{dolarPrice ? `Precio Dolar Oficial Venta:  $${dolarPrice.venta}` : "Cargando..."}</h2>
 		</div>
 	)
 }
