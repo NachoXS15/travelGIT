@@ -12,7 +12,7 @@ export default function Card({ id, destino, salida, categoria, imgUrl }: Package
         <p className="font-light mt-1">Salida: {salida}</p>
       </div>
       <NavLink
-        to={`/paquetes/${id}`}
+        to={`/paquete/${id}`}
       >
         <VerMas>
           Ver más
