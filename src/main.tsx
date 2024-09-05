@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     element: <Packages />
   },
   {
-    path: '/paquetes/:id',
+    path: '/paquete/:id',
     element: <SinglePackage />
   },
   {
