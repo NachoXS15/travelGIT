@@ -8,7 +8,7 @@ import Loader from "../../components/ui/loaders/Loader";
 export default function GetPackages({ categoryProp }: categoryProp) {
   const [packages, setPackages] = useState<PackageProps[]>([]);
   const [noPackages, setNoPackages] = useState(false)
-  const filteredCategory = categoryProp === "Todas" ? packages : packages.filter(pack => pack.categoria === categoryProp)
+  const filteredCategory = categoryProp === "Todas" ? packages : categoryProp === "Grupales" ? packages : packages.filter(pack => pack.categoria === categoryProp)
   const db = getFirestore();
   const fetchData = async () => {
     try {

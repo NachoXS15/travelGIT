@@ -23,9 +23,9 @@ export default function ConsultaModal({ ModalOpen, pkgName, HandleModal }: Consu
         const personCant = formData.get("personCant");
         const adults = formData.get("adults");
         const kids = formData.get("kids");
-        const obraSocial = formData.get("obraSocial");
-
-        const message = `¡Hola!, soy ${name}, me comunico desde ${provincia}. Me interesa el paquete de ${pkgName} y queria solicitar información y cotización. Viajamos ${personCant} personas, somos ${adults} adultos y ${kids ? kids : "ningún"} niños, y ${obraSocial} tenemos obra social. ¡Espero su respuesta!`;
+        const date = formData.get("date")?.toString();
+        
+        const message = `¡Hola!, soy ${name}, me comunico desde ${provincia}. Me interesa el paquete de ${pkgName} y queria solicitar información y cotización. Viajamos ${personCant} personas, somos ${adults} adultos y ${kids ? kids : "ningún"} niños, y deseamos viajar el ${date}. ¡Espero su respuesta!`;
         const phoneNumber = "543804325711";
 
         window.open(`https://wa.me/${phoneNumber}?text=${message}`);
@@ -99,12 +99,8 @@ export default function ConsultaModal({ ModalOpen, pkgName, HandleModal }: Consu
                                             <input className="border-2 border-bluemain rounded px-3 h-9 text-xl" required type="number" name="kids" placeholder="Introduzca" />
                                         </div>
                                         <div className="flex flex-col my-3">
-                                            <label htmlFor="">¿Posee obra social o seguro?</label>
-                                            <select name="obraSocial" id="" required className="border-2 border-bluemain rounded px-3 h-9 text-xl ">
-                                                <option value="" disabled defaultChecked className="text-darkgray">Seleccione</option>
-                                                <option value="Si">Si</option>
-                                                <option value="Si">No</option>
-                                            </select>
+                                            <label htmlFor="">Seleccione una fecha para viajar</label>
+                                            <input type="date" className="border-2 border-bluemain px-3 h-9 rounded" name="date" id="" />
                                         </div>
                                     </div>
                                 </div>
