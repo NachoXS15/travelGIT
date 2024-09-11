@@ -7,8 +7,12 @@ type ConsultaModal = {
 }
 
 export default function ConsultaModal({ ModalOpen, pkgName, HandleModal }: ConsultaModal) {
-
     const [isModalOpen, setIsModalOpen] = useState(ModalOpen)
+    const [kids, setKids] = useState(0)
+    const [adults, setAdults] = useState(0)
+    const [personCant, setPersonCant] = useState(0)
+
+    const cantInvalid = (adults + kids) > personCant
 
     useEffect(() => {
         setIsModalOpen(ModalOpen);
@@ -23,12 +27,17 @@ export default function ConsultaModal({ ModalOpen, pkgName, HandleModal }: Consu
         const personCant = formData.get("personCant");
         const adults = formData.get("adults");
         const kids = formData.get("kids");
-        const obraSocial = formData.get("obraSocial");
+        const date = formData.get("date")?.toString();
 
-        const message = `¡Hola!, soy ${name}, me comunico desde ${provincia}. Me interesa el paquete de ${pkgName} y queria solicitar información y cotización. Viajamos ${personCant} personas, somos ${adults} adultos y ${kids ? kids : "ningún"} niños, y ${obraSocial} tenemos obra social. ¡Espero su respuesta!`;
-        const phoneNumber = "543804325711";
+        if (cantInvalid) {
+            return;
+        } else {
+            const message = `¡Hola!, soy ${name}, me comunico desde ${provincia}. Me interesa el paquete de ${pkgName} y queria solicitar información y cotización. Viajamos ${personCant} personas, somos ${adults} adultos y ${kids ? kids : "ningún"} niños, y deseamos viajar el ${date}. ¡Espero su respuesta!`;
+            const phoneNumber = "543804325711";
+            window.open(`https://wa.me/${phoneNumber}?text=${message}`);
+        }
 
-        window.open(`https://wa.me/${phoneNumber}?text=${message}`);
+
     }
 
     return (
@@ -85,26 +94,46 @@ export default function ConsultaModal({ ModalOpen, pkgName, HandleModal }: Consu
                                     <div className="w-full md:w-1/2">
                                         <div className="flex flex-col my-3">
                                             <label htmlFor="">¿Cuantas Personas viajan?</label>
-                                            <input className="border-2 border-bluemain rounded px-3 h-9 text-xl" required type="number" name="personCant" placeholder="Introduzca" />
+                                            <input
+                                                className={`border-2 ${cantInvalid ? 'border-red' : 'border-bluemain'} rounded px-3 h-9 text-xl`}
+                                                required
+                                                type="number"
+                                                name="personCant"
+                                                placeholder="Introduzca"
+                                                value={personCant}
+                                                onChange={(e) => setPersonCant(Number(e.target.value))}
+                                            />
                                         </div>
                                         <div className="flex flex-col my-3">
                                             <label htmlFor="">Cantidad de Adultos</label>
-                                            <input className="border-2 border-bluemain rounded px-3 h-9 text-xl" required type="number" name="adults" placeholder="Introduzca" />
+                                            <input
+                                                className={`border-2 ${adults + kids > personCant ? 'border-red' : 'border-bluemain'} rounded px-3 h-9 text-xl`}
+                                                required
+                                                type="number"
+                                                name="adults"
+                                                placeholder="Introduzca"
+                                                value={adults}
+                                                onChange={(e) => setAdults(Number(e.target.value))}
+                                            />
                                         </div>
                                     </div>
                                     <hr className="w-2/5 m-auto border border-bluemain mt-2 md:hidden" />
                                     <div className="w-full md:w-1/2">
                                         <div className="flex flex-col my-3">
                                             <label htmlFor="">Cantidad de niños:</label>
-                                            <input className="border-2 border-bluemain rounded px-3 h-9 text-xl" required type="number" name="kids" placeholder="Introduzca" />
+                                            <input
+                                                className={`border-2 ${adults + kids > personCant ? 'border-red' : 'border-bluemain'} rounded px-3 h-9 text-xl`}
+                                                required
+                                                type="number"
+                                                name="kids"
+                                                placeholder="Introduzca"
+                                                value={kids}
+                                                onChange={(e) => setKids(Number(e.target.value))}
+                                            />
                                         </div>
                                         <div className="flex flex-col my-3">
-                                            <label htmlFor="">¿Posee obra social o seguro?</label>
-                                            <select name="obraSocial" id="" required className="border-2 border-bluemain rounded px-3 h-9 text-xl ">
-                                                <option value="" disabled defaultChecked className="text-darkgray">Seleccione</option>
-                                                <option value="Si">Si</option>
-                                                <option value="Si">No</option>
-                                            </select>
+                                            <label htmlFor="">Seleccione una fecha para viajar</label>
+                                            <input type="date" className="border-2 border-bluemain px-3 h-9 rounded" name="date" id="" />
                                         </div>
                                     </div>
                                 </div>
