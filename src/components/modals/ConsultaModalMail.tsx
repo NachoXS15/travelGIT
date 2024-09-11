@@ -11,6 +11,11 @@ type ConsultaModal = {
 export default function ConsultaModalMail({ ModalOpen, pkgName, HandleModal }: ConsultaModal) {
 
     const [isModalOpen, setIsModalOpen] = useState(ModalOpen);
+    const [kids, setKids] = useState(0)
+    const [adults, setAdults] = useState(0)
+    const [personCant, setPersonCant] = useState(0)
+
+    const cantInvalid = (adults + kids) > personCant
 
     useEffect(() => {
         setIsModalOpen(ModalOpen);
@@ -108,27 +113,47 @@ export default function ConsultaModalMail({ ModalOpen, pkgName, HandleModal }: C
                                 <div className="flex flex-col md:flex-row md:gap-9">
                                     <div className="w-full md:w-1/2">
                                         <div className="flex flex-col my-3">
-                                            <label htmlFor="personCant">¿Cuántas personas viajan?</label>
-                                            <input className="border-2 border-bluemain rounded px-3 h-9 text-xl" required type="number" name="personCant" placeholder="Introduzca" />
+                                            <label htmlFor="">¿Cuantas Personas viajan?</label>
+                                            <input
+                                                className={`border-2 ${cantInvalid ? 'border-red' : 'border-bluemain'} rounded px-3 h-9 text-xl`}
+                                                required
+                                                type="number"
+                                                name="personCant"
+                                                placeholder="Introduzca"
+                                                value={personCant}
+                                                onChange={(e) => setPersonCant(Number(e.target.value))}
+                                            />
                                         </div>
                                         <div className="flex flex-col my-3">
-                                            <label htmlFor="adults">Cantidad de Adultos</label>
-                                            <input className="border-2 border-bluemain rounded px-3 h-9 text-xl" required type="number" name="adults" placeholder="Introduzca" />
+                                            <label htmlFor="">Cantidad de Adultos</label>
+                                            <input
+                                                className={`border-2 ${adults + kids > personCant ? 'border-red' : 'border-bluemain'} rounded px-3 h-9 text-xl`}
+                                                required
+                                                type="number"
+                                                name="adults"
+                                                placeholder="Introduzca"
+                                                value={adults}
+                                                onChange={(e) => setAdults(Number(e.target.value))}
+                                            />
                                         </div>
                                     </div>
                                     <hr className="w-2/5 m-auto border border-bluemain mt-2 md:hidden" />
                                     <div className="w-full md:w-1/2">
                                         <div className="flex flex-col my-3">
-                                            <label htmlFor="kids">Cantidad de niños:</label>
-                                            <input className="border-2 border-bluemain rounded px-3 h-9 text-xl" required type="number" name="kids" placeholder="Introduzca" />
+                                            <label htmlFor="">Cantidad de niños:</label>
+                                            <input
+                                                className={`border-2 ${adults + kids > personCant ? 'border-red' : 'border-bluemain'} rounded px-3 h-9 text-xl`}
+                                                required
+                                                type="number"
+                                                name="kids"
+                                                placeholder="Introduzca"
+                                                value={kids}
+                                                onChange={(e) => setKids(Number(e.target.value))}
+                                            />
                                         </div>
                                         <div className="flex flex-col my-3">
-                                            <label htmlFor="obraSocial">¿Posee obra social o seguro?</label>
-                                            <select name="obraSocial" id="obraSocial" required className="border-2 border-bluemain rounded px-3 h-9 text-xl">
-                                                <option value="" disabled defaultChecked>Seleccione</option>
-                                                <option value="Si">Sí</option>
-                                                <option value="No">No</option>
-                                            </select>
+                                            <label htmlFor="">Seleccione una fecha para viajar</label>
+                                            <input type="date" className="border-2 border-bluemain px-3 h-9 rounded" name="date" id="" />
                                         </div>
                                     </div>
                                 </div>
