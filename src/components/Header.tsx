@@ -18,9 +18,7 @@ export default function Header() {
                 </NavLink>
                 <nav className='hidden md:block'>
                     <NavLink className="mx-5 text-lg text-bluemain md:hover:scale-150 transition" style={{ fontFamily: 'Mundial' }} to="/paquetes">Paquetes</NavLink>
-                    <NavLink className="mx-5 text-lg text-bluemain md:hover:scale-150 transition" style={{ fontFamily: 'Mundial' }} to="/guias">Guias</NavLink>
                     <NavLink className="mx-5 text-lg text-bluemain md:hover:scale-150 transition" style={{ fontFamily: 'Mundial' }} to="/about">Nosotros</NavLink>
-                    <NavLink className="mx-5 text-lg text-bluemain md:hover:scale-150 transition" style={{ fontFamily: 'Mundial' }} to="/opiniones">Opiniones</NavLink>
                     <NavLink className="mx-5 text-lg text-bluemain md:hover:scale-150 transition" style={{ fontFamily: 'Mundial' }} to="/contactanos">Contactanos</NavLink>
                 </nav>
                 <div className='md:hidden flex items-center justify-center' onClick={toggleNavBar}>
@@ -32,9 +30,7 @@ export default function Header() {
                     <hr className='w-3/5 m-auto border-2 border-bluemain' />
                     <div className='flex flex-col mt-3'>
                         <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/paquetes">Paquetes</NavLink>
-                        <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/guias">Guias</NavLink>
                         <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/about">Nosotros</NavLink>
-                        <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/opiniones">Opiniones</NavLink>
                         <NavLink className="hover:scale-105 transition my-2 mx-9 text-lg text-bluemain" style={{ fontFamily: 'Mundial' }} to="/contactanos">Contactanos</NavLink>
                     </div>
                 </div>
