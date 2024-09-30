@@ -83,6 +83,12 @@ export default function EditPackage({ ModalOpen, HandleModal, id }: editProps) {
         setImgItems(newItems);
     };
 
+    const handleDeleteImg = (index: number) => {
+        const newItems = imgItems.filter((_, i) => i !== index);
+        setImgItems(newItems);
+    };
+    
+
     const editPackage = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -116,7 +122,7 @@ export default function EditPackage({ ModalOpen, HandleModal, id }: editProps) {
         <>
             {isModalOpen && pkg ? (
                 <>
-                    <div className="w-11/12 md:w-4/6 h-fit bg-white rounded-lg m-auto overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none bg-cover bg-center focus:outline-none" style={{ fontFamily: "Mundial" }}>
+                    <div className="w-11/12 md:w-4/6 h-fit max-h-[600px] bg-white rounded-lg m-auto overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none bg-cover bg-center focus:outline-none" style={{ fontFamily: "Mundial" }}>
                         <div className="w-full relative flex flex-col gap-5 px-10 py-5">
                             <div className="w-full flex mt-2 justify-between">
                                 <div>
@@ -226,6 +232,15 @@ export default function EditPackage({ ModalOpen, HandleModal, id }: editProps) {
                                                 >
                                                     +
                                                 </button>
+                                                {imgItems.length > 1 && (
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => handleDeleteImg(i)}
+                                                        className="text-3xl text-bluemain border text-center rounded size-[35px] hover:text-white hover:bg-bluemain"
+                                                    >
+                                                        <Trash />
+                                                    </button>
+                                                )}
                                             </div>
                                         </div>
                                     ))}
