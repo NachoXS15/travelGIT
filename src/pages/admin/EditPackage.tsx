@@ -104,7 +104,12 @@ export default function EditPackage({ ModalOpen, HandleModal, id }: editProps) {
                 imgUrl: imgArray,
                 isPromoted: isPromoted
             });
-            toast.success("Paquete actualizado");
+            const promise = () => new Promise((resolve) => setTimeout(() => resolve({ name: 'Sonner' }), 200));
+            toast.promise(promise, {
+                loading: 'Eliminando',
+                success: "Paquete eliminado",
+                error: 'Paquete no eliminado',
+            });
             HandleModal();
         } catch (error) {
             console.log("Error", error);
