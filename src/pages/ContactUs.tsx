@@ -122,7 +122,7 @@ export default function ContactUs() {
 							<label htmlFor="consulta">Motivo de la consulta:</label>
 							<textarea name="consulta" id="consulta" required className="w-full h-full resize-none border-2 border-bluemain"></textarea>
 						</div>
-						<div className="w-full md:w-3/5 flex flex-col md:flex-row md:gap-2">
+						<div className="w-full md:w-3/5 flex flex-col md:flex-row gap-3 md:gap-2">
 							<button type="button" onClick={handleWhatsAppSubmit} className="w-full md:w-1/2 h-10 rounded bg-bluesec text-white flex justify-center items-center">
 								<p className="flex gap-2"><WhatsApp /><span>Consultar por WhatsApp</span></p>
 							</button>

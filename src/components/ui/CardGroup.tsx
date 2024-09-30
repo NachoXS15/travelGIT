@@ -26,7 +26,7 @@ export default function CardGroup() {
 
                         </NavLink>
                     </div>
-                    <div className="w-full h-1/2 flex gap-4">
+                    <div className="w-full h-1/2 flex gap-3 md:gap-4">
                         <div className="w-full bg-bluemain rounded-lg bg-cover bg-center hover:scale-105 transition duration-300" style={{ backgroundImage: `url("https://media.viajando.travel/p/d73e0ae84123f53bbf45b4ec019ce1b9/adjuntos/236/imagenes/000/523/0000523225/cataratas-del-iguazu-como-llegar.png?2022-09-28-13-26-43")` }}>
                             <NavLink to="/paquetes/TurismoNacional">
                                 <div className="w-full h-full bg-black bg-opacity-40 rounded-lg flex flex-col items-start justify-end p-5">
