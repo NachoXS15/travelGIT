@@ -1,5 +1,6 @@
 export interface categoryProp{
     categoryProp: string
+    search: string | undefined
 }
 
 export interface PackageProps{
