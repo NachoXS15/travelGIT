@@ -49,7 +49,7 @@ export default function GetPackages({ categoryProp, search }: categoryProp) {
         ))
       ) : noPackages ? (
         <div className="w-full h-full flex items-center justify-center">
-          <p className="text-2xl">No hay paquetes</p>
+          <p className="text-2xl" style={{fontFamily: 'Mundial'}}>No hay paquetes</p>
         </div>
       ) : (
         <div className="w-full h-full flex items-center justify-center">
