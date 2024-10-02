@@ -58,6 +58,11 @@ export default function CreatePackage({ ModalOpen, HandleModal }: addProps) {
         setImgItems([...imgItems, { item: '' }])
     }
 
+    const handleDeleteImg = (index: number) => {
+        const newItems = imgItems.filter((_, i) => i !== index);
+        setImgItems(newItems);
+    };
+
     const handleInputChangeImg = (index: number, value: string) => {
         const newItems = [...imgItems];
         newItems[index].item = value;
@@ -102,7 +107,7 @@ export default function CreatePackage({ ModalOpen, HandleModal }: addProps) {
         <>
             {isModalOpen && (
                 <>
-                    <div className="w-11/12 md:w-4/6 h-fit bg-white rounded-lg m-auto overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none bg-cover bg-center focus:outline-none" style={{ fontFamily: "Mundial" }}>
+                    <div className="w-11/12 md:w-4/6 h-fit max-h-[600px] bg-white rounded-lg m-auto overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none bg-cover bg-center focus:outline-none" style={{ fontFamily: "Mundial" }}>
                         <div className="w-full relative flex flex-col gap-5 px-10 py-5">
                             <div className="w-full flex mt-2 justify-between">
                                 <div>
@@ -156,8 +161,9 @@ export default function CreatePackage({ ModalOpen, HandleModal }: addProps) {
                                             <div key={i}>
                                                 <label htmlFor="">Inserte Links de imagenes</label>
                                                 <div className="flex items-center gap-2">
-                                                    <input className="w-full border-2 border-bluemain rounded px-3 h-9 text-xl" onChange={(e) => handleInputChangeImg(i, e.target.value)} required type="text" value={items.item} name="img" placeholder="Introduzca" />
+                                                    <input type="text" className="w-full border-2 border-bluemain rounded px-3 h-9 text-xl" onChange={(e) => handleInputChangeImg(i, e.target.value)} required value={items.item} name="img" placeholder="Introduzca" />
                                                     <button onClick={handleAddImgs} className="text-3xl text-bluemain border text-center rounded size-[35px] hover:text-white hover:bg-bluemain">+</button>
+                                                    {imgItems.length > 1 ? (<button onClick={() => handleDeleteImg(i)} className="text-3xl text-bluemain border text-center rounded size-[35px] hover:text-white hover:bg-bluemain"><Trash /></button>) : null}
                                                 </div>
                                             </div>
                                         ))

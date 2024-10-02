@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Layout from "../components/Layout";
-import { Compass } from "../components/ui/Icons";
+import { Cancel, Compass, Search } from "../components/ui/Icons";
 import GetPackages from "../config/api/getPackages";
 import categories from "../config/Categories";
 import { useParams } from "react-router";
@@ -12,8 +12,24 @@ export default function Packages() {
   const [word1, word2] = (id?.split(/(?=[A-Z])/)) ?? [];
   const categoryPassed = word1 && word2 ? `${word1} ${word2}` : word1 ?? "";
   const [categorySelected, setCategorySelected] = useState<string>(categoryPassed || "Todas")
+    const [search, setSearch] = useState<string | undefined>("")
+  console.log(search);
+  
   const handleCategory = (c: string) => {
     setCategorySelected(c)
+  }
+
+  const form = useRef<HTMLFormElement>(null);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+		const formData = new FormData(form.current!);
+    const searchData = formData.get("search")?.toString()
+    setSearch(searchData)
+  }
+
+  const clearSearch = () => {
+    setSearch("");
   }
 
   return (
@@ -42,8 +58,15 @@ export default function Packages() {
             ))}
           </div>
         </div>
+        <form ref={form} onSubmit={handleSearch} className="mb-4 flex items-center gap-2">
+          <input type="text" name="search" placeholder="Buscar" className="w-56 border-b-2 border-bluemain focus:outline-none" />
+          <div className="flex items-center">
+            <button type="submit" className="hover:scale-125 transition"><Search /></button>
+            <button type="reset" onClick={clearSearch} className={`${search ? 'hover:scale-125 transition' : 'hidden'}`}><Cancel /></button>
+          </div>
+        </form>
         <div className="flex flex-wrap gap-5 m-auto md:w-8/12 max-lg:w-10/12 md:items-center md:gap-y-6 md:gap-x-3 md:px-10 ">
-          <GetPackages categoryProp={categorySelected} />
+          <GetPackages search={search} categoryProp={categorySelected} />
         </div>
       </section>
     </Layout>

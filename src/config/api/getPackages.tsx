@@ -5,10 +5,10 @@ import Card from "../../components/Card";
 import Loader from "../../components/ui/loaders/Loader";
 
 
-export default function GetPackages({ categoryProp }: categoryProp) {
+export default function GetPackages({ categoryProp, search }: categoryProp) {
   const [packages, setPackages] = useState<PackageProps[]>([]);
   const [noPackages, setNoPackages] = useState(false)
-  const filteredCategory = categoryProp === "Todas" ? packages : categoryProp === "Grupales" ? packages : packages.filter(pack => pack.categoria === categoryProp)
+  const filteredCategory = search ? packages.filter(pkg => pkg.destino.toLowerCase().includes(search.toLowerCase())) : categoryProp === "Todas" ? packages : packages.filter(pack => pack.categoria === categoryProp);
   const db = getFirestore();
   const fetchData = async () => {
     try {
@@ -49,7 +49,7 @@ export default function GetPackages({ categoryProp }: categoryProp) {
         ))
       ) : noPackages ? (
         <div className="w-full h-full flex items-center justify-center">
-          <p className="text-2xl">No hay paquetes</p>
+          <p className="text-2xl" style={{fontFamily: 'Mundial'}}>No hay paquetes</p>
         </div>
       ) : (
         <div className="w-full h-full flex items-center justify-center">
