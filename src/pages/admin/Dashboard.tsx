@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import HeaderAdmin from "../../components/HeaderAdmin";
 import { PackageProps } from "../../config/types";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import CategoryTag from "../../components/ui/CategoryTag";
-import { Edit, Trash } from "../../components/ui/Icons";
+import { Cancel, Edit, Search, Trash } from "../../components/ui/Icons";
 import Loader from "../../components/ui/loaders/Loader";
 import PromotedTag from "../../components/ui/PromotedTag";
 import CreatePackage from "./CreatePackage";
@@ -18,6 +18,10 @@ export default function Dashboard() {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [selectedID, setSelectedID] = useState<string>("")
+  const [search, setSearch] = useState<string | undefined>("")
+  console.log(search);
+  
+
   const db = getFirestore();
   // const navigate = useNavigate()
 
@@ -52,6 +56,19 @@ export default function Dashboard() {
     fetchData();
   }, [packages]);
 
+  const form = useRef<HTMLFormElement>(null);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+		const formData = new FormData(form.current!);
+    const searchData = formData.get("search")?.toString()
+    setSearch(searchData)
+  }
+
+  const clearSearch = () => {
+    setSearch("");
+  }
+
   // const auth = getAuth();
   // useEffect(() => {
 
@@ -72,12 +89,19 @@ export default function Dashboard() {
       <div className="w-full my-7 px-5 md:w-4/5 m-auto flex items-center flex-col" style={{ fontFamily: "Mundial" }}>
         <div className="w-full flex justify-between">
           <h2 className="text-bluemain text-3xl my-3 font-semibold">Lista de paquetes</h2>
-          <button className="text-4xl text-bluemain hover:scale-110 transition" onClick={openCreateModal}>+</button>
+          <div className="flex items-center gap-5">
+            <form ref={form} onSubmit={handleSearch} className="flex items-center">
+              <input type="text" className="border-b border-bluemain focus:outline-none" placeholder="Buscar" />
+              <button type="submit"><Search/></button>
+              <button type="reset" onClick={clearSearch}><Cancel /></button>
+            </form>
+            <button className="text-4xl text-bluemain hover:scale-110 transition" onClick={openCreateModal}>+</button>
+          </div>
         </div>
         <div className="w-full flex flex-col gap-5">
           {
-            packages && packages.length > 0 ? packages.map((pkg) => (
-              <div className="w-full py-4 px-7 rounded-2xl bg-lightgray shadow-lg flex flex-col md:flex-row justify-between gap-10">
+            packages && packages.length > 0 ? packages.map((pkg, index) => (
+              <div key={index} className="w-full py-4 px-7 rounded-2xl bg-lightgray shadow-lg flex flex-col md:flex-row justify-between gap-10">
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
                   <img src={pkg.imgUrl[0]} className="w-full md:w-52 rounded-lg" alt="" />
                   <div>
