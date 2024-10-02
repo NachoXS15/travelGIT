@@ -28,6 +28,10 @@ export default function Packages() {
     setSearch(searchData)
   }
 
+  const clearSearch = () => {
+    setSearch("");
+  }
+
   return (
     <Layout>
       <section className="w-full h-[350px] bg-cover bg-center"
@@ -58,7 +62,7 @@ export default function Packages() {
           <input type="text" name="search" placeholder="Buscar" className="w-56 border-b-2 border-bluemain focus:outline-none" />
           <div className="flex items-center">
             <button type="submit" className="hover:scale-125 transition"><Search /></button>
-            <button type="reset" className={`${search ? 'hover:scale-125 transition' : 'hidden'}`}><Cancel /></button>
+            <button type="reset" onClick={clearSearch} className={`${search ? 'hover:scale-125 transition' : 'hidden'}`}><Cancel /></button>
           </div>
         </form>
         <div className="flex flex-wrap gap-5 m-auto md:w-8/12 max-lg:w-10/12 md:items-center md:gap-y-6 md:gap-x-3 md:px-10 ">

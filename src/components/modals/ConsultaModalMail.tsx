@@ -153,7 +153,7 @@ export default function ConsultaModalMail({ ModalOpen, pkgName, HandleModal }: C
                                         </div>
                                         <div className="flex flex-col my-3">
                                             <label htmlFor="">Seleccione una fecha para viajar</label>
-                                            <input type="date" className="border-2 border-bluemain px-3 h-9 rounded" name="date" id="" />
+                                            <input type="dwate" className="border-2 border-bluemain px-3 h-9 rounded" name="date" id="" />
                                         </div>
                                     </div>
                                 </div>
