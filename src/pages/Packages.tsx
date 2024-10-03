@@ -12,7 +12,7 @@ export default function Packages() {
   const [word1, word2] = (id?.split(/(?=[A-Z])/)) ?? [];
   const categoryPassed = word1 && word2 ? `${word1} ${word2}` : word1 ?? "";
   const [categorySelected, setCategorySelected] = useState<string>(categoryPassed || "Todas")
-    const [search, setSearch] = useState<string | undefined>("")
+  const [search, setSearch] = useState<string | undefined>("")
   console.log(search);
   
   const handleCategory = (c: string) => {
