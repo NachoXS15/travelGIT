@@ -21,6 +21,7 @@ export default function Dashboard() {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [selectedID, setSelectedID] = useState<string>("")
+  const [selectedName, setSelectedName] = useState<string>("")
   
 
   const db = getFirestore();
@@ -43,14 +44,16 @@ export default function Dashboard() {
     setCreateModalOpen(!createModalOpen);
   }
 
-  const openDeleteModal = (id: string = "") => {
-    setSelectedID(id)
+  const openDeleteModal = (id: string = "", destiny: string = "") => {
+    setSelectedID(id);
+    setSelectedName(destiny)
     setDeleteModalOpen(!deleteModalOpen);
   }
 
-  const openEditModal = (id: string = "") => {
+  const openEditModal = (id: string = "", destiny: string = "") => {
     setEditModalOpen(!editModalOpen);
-    setSelectedID(id)
+    setSelectedID(id);
+    setSelectedName(destiny)
   }
 
   useEffect(() => {
@@ -89,8 +92,8 @@ export default function Dashboard() {
     <>
       <HeaderAdmin />
       <div className="w-full my-7 px-5 md:w-4/5 m-auto flex items-center flex-col" style={{ fontFamily: "Mundial" }}>
-        <div className="w-full flex flex-col md:flex-row justify-between">
-          <h2 className="text-bluemain text-3xl my-3 font-semibold">Lista de paquetes</h2>
+        <div className="w-full flex md:flex-row justify-between">
+          <h2 className="text-bluemain text-2xl md:text-3xl my-3 font-semibold">Lista de paquetes</h2>
           {/* <div className="flex justify-between px-3 items-center md:gap-5">
             <form ref={form} onSubmit={handleSearch} className="flex items-center">
               <input type="text" className="w-56 border-b border-bluemain focus:outline-none" placeholder="Buscar" />
@@ -113,8 +116,8 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <div className="flex justify-end gap-5">
-                  <button onClick={() => openEditModal(pkg.id)} className="hover:scale-110 transition"><Edit /></button>
-                  <button onClick={() => openDeleteModal(pkg.id)} className="hover:scale-110 transition"><Trash /></button>
+                  <button onClick={() => openEditModal(pkg.id, pkg.destino)} className="hover:scale-110 transition"><Edit /></button>
+                  <button onClick={() => openDeleteModal(pkg.id, pkg.destino)} className="hover:scale-110 transition"><Trash /></button>
                 </div>
               </div>
 
@@ -131,7 +134,7 @@ export default function Dashboard() {
         createModalOpen && <CreatePackage HandleModal={openCreateModal} ModalOpen={createModalOpen} />
       }
       {
-        deleteModalOpen && <DeletePackage id={selectedID} HandleModal={openDeleteModal} ModalOpen={deleteModalOpen} />
+        deleteModalOpen && <DeletePackage id={selectedID} destiny={selectedName} HandleModal={openDeleteModal} ModalOpen={deleteModalOpen} />
       }
       {
         editModalOpen && <EditPackage id={selectedID} HandleModal={openEditModal} ModalOpen={editModalOpen} />

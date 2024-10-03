@@ -1,10 +1,12 @@
 import { deleteDoc, doc, getFirestore } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Toaster, toast } from 'sonner'
+
 type deleteProp = {
     ModalOpen: boolean,
     HandleModal: () => void,
     id: string
+    destiny: string
 }
 
 export default function DeletePackage({ ModalOpen, HandleModal, id }: deleteProp) {
@@ -32,6 +34,7 @@ export default function DeletePackage({ ModalOpen, HandleModal, id }: deleteProp
         }
     }
 
+    
     return (
         <>
             {
