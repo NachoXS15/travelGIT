@@ -9,7 +9,7 @@ type deleteProp = {
     destiny: string
 }
 
-export default function DeletePackage({ ModalOpen, HandleModal, id }: deleteProp) {
+export default function DeletePackage({ ModalOpen, HandleModal, id, destiny }: deleteProp) {
     const [isModalOpen, setIsModalOpen] = useState(ModalOpen)
     const db = getFirestore()
     useEffect(() => {
@@ -45,10 +45,10 @@ export default function DeletePackage({ ModalOpen, HandleModal, id }: deleteProp
                                 <div className="w-full flex mt-2 justify-between">
                                     <div>
                                         <h2 className="text-4xl mb-2">Eliminar paquete</h2>
-                                        <hr className="w-full border border-red" />
+                                        <hr className="w-full border border-bluemain" />
                                     </div>
                                 </div>
-                                <p className="text-xl">¿Estás seguro que quieres eliminar el paquete de ? Esta acción es irreversible</p>
+                                <p className="text-xl">¿Estás seguro que quieres eliminar el paquete de <span className="text-red font-medium">{destiny}</span>? Esta acción es irreversible</p>
                                 <div>
                                     <div className="w-full md:w-3/5 flex flex-col items-center md:flex-row gap-2 py-2 m-auto mb-2">
                                         <button className="w-3/5 mx-2 bg-red px-6 py-2 rounded text-white " onClick={deleteItem}>Eliminar</button>
