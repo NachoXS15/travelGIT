@@ -112,7 +112,7 @@ export default function EditPackage({ ModalOpen, HandleModal, id }: editProps) {
             });
             const promise = () => new Promise((resolve) => setTimeout(() => resolve({ name: 'Sonner' }), 200));
             toast.promise(promise, {
-                loading: 'Eliminando',
+                loading: 'Actualizando',
                 success: "Paquete Actualziado",
                 error: 'Paquete no Actualizado',
             });
