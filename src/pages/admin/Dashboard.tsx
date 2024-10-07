@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import HeaderAdmin from "../../components/HeaderAdmin";
 import { PackageProps } from "../../config/types";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, onSnapshot } from "firebase/firestore";
 import CategoryTag from "../../components/ui/CategoryTag";
 import { Cancel, Edit, Search, Trash } from "../../components/ui/Icons";
 import Loader from "../../components/ui/loaders/Loader";
@@ -27,19 +27,6 @@ export default function Dashboard() {
   const db = getFirestore();
   // const navigate = useNavigate()
 
-  const fetchData = async () => {
-    try {
-      const response = await getDocs(collection(db, 'paquetes'));
-      const dataList = response.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      })) as PackageProps[];
-      setPackages(dataList);
-    } catch (error) {
-      console.log("Error: ", error);
-    }
-  }
-
   const openCreateModal = () => {
     setCreateModalOpen(!createModalOpen);
   }
@@ -57,9 +44,18 @@ export default function Dashboard() {
   }
 
   useEffect(() => {
-    fetchData();
+    const unsubscribe = onSnapshot(collection(db, 'paquetes'), (snapshot) => {
+      const dataList = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      })) as PackageProps[];
+      setPackages(dataList);
+    }, (error) => {
+      console.log("Error: ", error);
+    });
+  
+    return () => unsubscribe();
   }, []);
-
 
   const form = useRef<HTMLFormElement>(null);
 

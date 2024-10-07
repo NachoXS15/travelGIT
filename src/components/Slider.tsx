@@ -27,10 +27,10 @@ export default function Carousel({ images, text }: CarouselProps) {
     return (
         <div className="relative w-full h-[550px] overflow-hidden">
             <div className="sm:hidden md:absolute md:inset-0 md:flex md:items-center md:justify-between md:px-4 md:z-10">
-                <button onClick={handlePrev} className="p-2 shadow bg-opacity-40 bg-white rounded-full hover:bg-opacity-100">
+                <button onClick={handlePrev} className="sm:hidden p-2 shadow bg-opacity-40 bg-white rounded-full hover:bg-opacity-100">
                     <LeftArrowIcon />
                 </button>
-                <button onClick={handleNext} className="p-2 shadow bg-opacity-40 bg-white rounded-full hover:bg-opacity-100">
+                <button onClick={handleNext} className="sm:hidden p-2 shadow bg-opacity-40 bg-white rounded-full hover:bg-opacity-100">
                     <RightArrowIcon />
                 </button>
             </div>
@@ -45,7 +45,7 @@ export default function Carousel({ images, text }: CarouselProps) {
                                 backgroundPosition: 'center',
                             }}
                         >
-                            <div className="w-full h-full bg-black bg-opacity-45 flex justify-center items-center">
+                            <div className="w-full h-full bg-black bg-opacity-45 flex justify-center items-center px-2">
                                 <div className="text-white text-center text-4xl font-bold md:text-7xl md:w-3/5" style={{ fontFamily: 'Mundial' }}>
                                     {text[index]}
                                 </div>
