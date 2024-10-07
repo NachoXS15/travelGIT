@@ -10,9 +10,13 @@ import ConsultaModal from "../components/modals/ConsultaModal";
 import ConsultaModalMail from "../components/modals/ConsultaModalMail";
 
 export default function SinglePackage() {
-	const [pkg, setPkg] = useState<PackageProps>()
+	const [pkg, setPkg] = useState<PackageProps | undefined>()
 	const [isModalOpenWsp, setIsModalOpenWsp] = useState(false)
 	const [isModalOpenMail, setIsModalOpenMail] = useState(false)
+	const [currentDep, setCurrentDep] = useState(0)
+	const [currentImgIndex, setCurrentImgIndex] = useState(0);
+	const PkgImgs: string[] | undefined = pkg?.imgUrl;
+
 	const { id } = useParams();
 	const db = getFirestore();
 
@@ -31,6 +35,7 @@ export default function SinglePackage() {
 			console.log(error);
 		}
 	}
+
 
 	const handleModalWsp = () => {
 		setIsModalOpenWsp(!isModalOpenWsp)
@@ -58,8 +63,18 @@ export default function SinglePackage() {
 						<hr className="w-4/5 m-auto border border-bluemain" />
 						<div className="w-full h-fit px-5 my-5 md:w-5/5 md:m-auto md:my-10 md:flex flex-col md:justify-center md:items-center" style={{ fontFamily: 'Mundial' }}>
 							<div className="md:w-4/5 flex flex-col md:gap-20 md:flex-row-reverse">
-								<div className="-w-full md:w-1/2">
-									<img src={pkg.imgUrl[0]} className="rounded-md" alt="" />
+								<div className="-w-full md:w-1/2 flex transition-transform duration-500" style={{ transform: `translateX(-${currentDep * 100}%)` }}>
+									<div className="relative w-1/2 h-96 overflow-hidden rounded-2xl">
+										<div
+											className="w-full h-full flex transition-transform duration-700 ease-in-out"
+											style={{ transform: `translateX(-${currentImgIndex * 100}%)` }}
+										>
+											{PkgImgs && PkgImgs.map((img, imgIndex) => (
+												<div key={imgIndex} className="w-full h-full flex-shrink-0 bg-cover bg-center" style={{ backgroundImage: `url(${img})` }}>
+												</div>
+											))}
+										</div>
+									</div>
 								</div>
 								<div className="w-full md:w-1/2">
 									<div>
