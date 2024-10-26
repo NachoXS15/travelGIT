@@ -65,7 +65,7 @@ export default function Packages() {
             <button type="reset" onClick={clearSearch} className={`${search ? 'hover:scale-125 transition' : 'hidden'}`}><Cancel /></button>
           </div>
         </form>
-        <div className="flex flex-wrap gap-5 m-auto md:w-8/12 max-lg:w-10/12 md:items-center md:gap-y-6 md:gap-x-3 md:px-10 ">
+        <div className="flex flex-wrap items-center gap-5 m-auto md:w-4/5 justify-center md:gap-7">
           <GetPackages search={search} categoryProp={categorySelected} />
         </div>
       </section>
