@@ -35,14 +35,6 @@ export default function SinglePackage() {
 		}
 	};
 
-	// const handlePrev = () => {
-	// 	if (PkgImgs) {
-	// 		setCurrentImgIndex((prevIndex) =>
-	// 			prevIndex === 0 ? PkgImgs.length - 1 : prevIndex - 1
-	// 		);
-	// 	}
-	// };
-
 	const handleNext = () => {
 		if (PkgImgs) {
 			setCurrentImgIndex((prevIndex) =>

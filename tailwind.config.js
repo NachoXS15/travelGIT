@@ -14,7 +14,8 @@ export default {
       "black": "#000",
       "darkgray": "#8c8c8c",
       "red": "#a0142e",
-      "green": "#1f7b00"
+      "green": "#1f7b00",
+      "pink": "#ff1b97"
     }
   },
   plugins: [],
