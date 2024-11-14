@@ -4,7 +4,7 @@ import { PackageProps } from "../config/types";
 import { useParams } from "react-router";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import Loader from "../components/ui/loaders/Loader";
-import { Airplane, LeftArrowIcon, Mail, RightArrowIcon, WhatsApp } from "../components/ui/Icons";
+import { Airplane, Mail, WhatsApp } from "../components/ui/Icons";
 import CategoryTag from "../components/ui/CategoryTag";
 import ConsultaModal from "../components/modals/ConsultaModal";
 import ConsultaModalMail from "../components/modals/ConsultaModalMail";
@@ -35,13 +35,6 @@ export default function SinglePackage() {
 		}
 	};
 
-	const handlePrev = () => {
-		if (PkgImgs) {
-			setCurrentImgIndex((prevIndex) =>
-				prevIndex === 0 ? PkgImgs.length - 1 : prevIndex - 1
-			);
-		}
-	};
 
 	const handleNext = () => {
 		if (PkgImgs) {
@@ -87,22 +80,6 @@ export default function SinglePackage() {
 					>
 						<div className="w-full md:w-4/5 px-0 flex flex-col md:gap-20 md:flex-row-reverse">
 							<div className="w-full px-0 md:w-1/2 relative">
-								{/* <div className="sm:hidden md:absolute md:inset-0 md:flex md:items-center md:justify-between md:px-4 md:z-10">
-									<button
-										onClick={handlePrev}
-										className="p-2 shadow cursor-pointer bg-white rounded-full hover:bg-opacity-100"
-									>
-										<LeftArrowIcon />
-									</button>
-									<button
-										onClick={handleNext}
-										className="p-2 shadow cursor-pointer bg-white rounded-full hover:bg-opacity-100"
-									>
-										<RightArrowIcon />
-									</button>
-								</div> */}
-
-								{/* Carrusel de imágenes */}
 								<div className="relative px-0 w-full h-96 overflow-hidden rounded-2xl">
 									<div
 										className="w-full h-full flex transition-transform duration-700 ease-in-out"
@@ -121,8 +98,6 @@ export default function SinglePackage() {
 									</div>
 								</div>
 							</div>
-
-							{/* Información del paquete */}
 							<div className="w-full md:w-1/2">
 								<div>
 									<h1 className="uppercase font-bold text-5xl mt-3" style={{ color: "#181818" }}>
