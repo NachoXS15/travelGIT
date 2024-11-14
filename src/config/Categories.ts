@@ -4,6 +4,7 @@ const categories: string[] = [
     "Turismo Nacional",
     "Turismo Internacional",
     "Excursiones",
+    "Quinceañeras"
 ]
 
 export default categories

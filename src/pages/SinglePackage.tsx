@@ -4,7 +4,7 @@ import { PackageProps } from "../config/types";
 import { useParams } from "react-router";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import Loader from "../components/ui/loaders/Loader";
-import { Airplane, Mail, WhatsApp } from "../components/ui/Icons";
+import { Airplane,  Mail, WhatsApp } from "../components/ui/Icons";
 import CategoryTag from "../components/ui/CategoryTag";
 import ConsultaModal from "../components/modals/ConsultaModal";
 import ConsultaModalMail from "../components/modals/ConsultaModalMail";
@@ -34,7 +34,6 @@ export default function SinglePackage() {
 			console.log(error);
 		}
 	};
-
 
 	const handleNext = () => {
 		if (PkgImgs) {
@@ -75,12 +74,28 @@ export default function SinglePackage() {
 				<>
 					<hr className="w-4/5 m-auto border border-bluemain" />
 					<div
-						className="w-full h-fit px-5 my-5 md:w-5/5 md:m-auto md:my-10 md:flex flex-col md:justify-center md:items-center"
+						className="w-full h-fit md:px-5 my-5 md:w-5/5 md:m-auto md:my-10 md:flex flex-col md:justify-center md:items-center"
 						style={{ fontFamily: "Mundial" }}
 					>
 						<div className="w-full md:w-4/5 px-0 flex flex-col md:gap-20 md:flex-row-reverse">
 							<div className="w-full px-0 md:w-1/2 relative">
-								<div className="relative px-0 w-full h-96 overflow-hidden rounded-2xl">
+								{/* <div className="sm:hidden md:absolute md:inset-0 md:flex md:items-center md:justify-between md:px-4 md:z-10">
+									<button
+										onClick={handlePrev}
+										className="p-2 shadow cursor-pointer bg-white rounded-full hover:bg-opacity-100"
+									>
+										<LeftArrowIcon />
+									</button>
+									<button
+										onClick={handleNext}
+										className="p-2 shadow cursor-pointer bg-white rounded-full hover:bg-opacity-100"
+									>
+										<RightArrowIcon />
+									</button>
+								</div> */}
+
+								{/* Carrusel de imágenes */}
+								<div className="relative px-0 w-full h-72 md:h-96 overflow-hidden md:rounded-2xl">
 									<div
 										className="w-full h-full flex transition-transform duration-700 ease-in-out"
 										style={{
@@ -98,7 +113,9 @@ export default function SinglePackage() {
 									</div>
 								</div>
 							</div>
-							<div className="w-full md:w-1/2">
+
+							{/* Información del paquete */}
+							<div className="w-full md:w-1/2 px-5">
 								<div>
 									<h1 className="uppercase font-bold text-5xl mt-3" style={{ color: "#181818" }}>
 										{pkg.destino}
@@ -123,7 +140,7 @@ export default function SinglePackage() {
 							</div>
 						</div>
 
-						<div className="w-full md:w-4/5 flex flex-col gap-2 md:flex-row md:gap-10 mt-5">
+						<div className="w-full md:w-4/5 flex px-5 flex-col gap-2 md:flex-row md:gap-10 mt-5">
 							<button
 								type="submit"
 								onClick={handleModalWsp}

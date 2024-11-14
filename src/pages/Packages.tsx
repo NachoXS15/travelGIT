@@ -7,14 +7,13 @@ import { useParams } from "react-router";
 
 
 export default function Packages() {
-  //revisa si viene una categoria por parametros y la asigna, si no existe, se utiliza "Todas"
-  const {id} = useParams();
+  const { id } = useParams();
   const [word1, word2] = (id?.split(/(?=[A-Z])/)) ?? [];
   const categoryPassed = word1 && word2 ? `${word1} ${word2}` : word1 ?? "";
   const [categorySelected, setCategorySelected] = useState<string>(categoryPassed || "Todas")
   const [search, setSearch] = useState<string | undefined>("")
   console.log(search);
-  
+
   const handleCategory = (c: string) => {
     setCategorySelected(c)
   }
@@ -23,7 +22,7 @@ export default function Packages() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-		const formData = new FormData(form.current!);
+    const formData = new FormData(form.current!);
     const searchData = formData.get("search")?.toString()
     setSearch(searchData)
   }
@@ -50,12 +49,15 @@ export default function Packages() {
                 key={i}
                 onClick={() => handleCategory(c)}
                 className={`w-fit text-nowrap py-0.5 px-2 m-1 flex items-center gap-2 rounded-full md:px-2 md:pr-4 
-                  ${categorySelected === c ? 'bg-bluesec text-white' : 'bg-darkgray text-lightgray hover:bg-bluemain'}`}
+                    ${categorySelected === c ?
+                    (c === "Quinceañeras" ? 'bg-pink text-white' : 'bg-bluesec text-white') :
+                    'bg-darkgray text-lightgray hover:bg-bluemain'}`}
               >
                 <Compass />
                 {c}
               </button>
             ))}
+
           </div>
         </div>
         <form ref={form} onSubmit={handleSearch} className="mb-4 flex items-center gap-2">
@@ -65,7 +67,7 @@ export default function Packages() {
             <button type="reset" onClick={clearSearch} className={`${search ? 'hover:scale-125 transition' : 'hidden'}`}><Cancel /></button>
           </div>
         </form>
-        <div className="flex flex-wrap gap-5 m-auto md:w-8/12 max-lg:w-10/12 md:items-center md:gap-y-6 md:gap-x-3 md:px-10 ">
+        <div className="flex flex-wrap items-center gap-5 m-auto md:w-4/5 justify-center md:gap-7">
           <GetPackages search={search} categoryProp={categorySelected} />
         </div>
       </section>
