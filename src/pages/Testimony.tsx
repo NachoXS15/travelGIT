@@ -10,12 +10,19 @@ export default function Testimony() {
           <p className="text-white text-4xl font-semibold md:text-7xl" style={{ fontFamily: 'Mundial' }}>TESTIMONIOS</p>
         </div>
       </section>
-      <section className="w-full md:w-full h-fit flex flex-wrap justify-center gap-10 my-10">
+      <h2 className="font-bold text-5xl text-center my-10 text-bluemain" style={{fontFamily: 'Mundial'}}>Algunos mensajes de nuestros pasajeros</h2>
+      <hr className="w-20 m-auto border border-bluemain" />
+      <section className="w-full px-5 md:w-full h-fit flex flex-wrap justify-center md:gap-10 md:my-10">
         {
           Testimonies.map(test => (
             <TestimonyCard passenger={test.passenger} msg={test.msg} />
           ))
         }
+      </section>
+      <h2 className="font-bold text-5xl text-center my-10 text-bluemain" style={{fontFamily: 'Mundial'}}>¡Postales de nuestros viajeros!</h2>
+      <hr className="w-20 m-auto border border-bluemain" />
+      <section>
+        
       </section>
     </Layout>
   )
