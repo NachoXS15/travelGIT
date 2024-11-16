@@ -11,6 +11,7 @@ const categoriesCreate: string[] = [
     "Turismo Nacional",
     "Turismo Internacional",
     "Excursiones",
+    "Quinceañeras"
 ]
 
 type arrayItems = {
