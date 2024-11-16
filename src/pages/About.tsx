@@ -6,7 +6,7 @@ export default function About() {
       <section className="w-full h-[350px] bg-cover bg-center"
         style={{ backgroundImage: `url("https://i0.wp.com/vacacionesporargentina.com/wp-content/uploads/2020/11/waterfall-5040210_1920.jpg?fit=1920%2C1272&ssl=1")` }}>
         <div className="w-full h-full flex justify-center items-center bg-bluesec bg-opacity-70">
-          <p className="text-white text-4xl font-semibold md:text-7xl" style={{ fontFamily: 'Mundial' }}>NOSOTROS</p>
+          <p className="text-white text-5xl font-semibold md:text-7xl" style={{ fontFamily: 'Mundial' }}>NOSOTROS</p>
         </div>
       </section>
       <section className="w-full md:w-3/4 h-fit m-auto flex flex-col items-start justify-center my-10 gap-3 px-5" style={{ fontFamily: 'Mundial' }}>
