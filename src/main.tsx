@@ -13,6 +13,7 @@ import About from './pages/About.tsx'
 import Opinions from './pages/Opinions.tsx'
 import Login from './pages/admin/Login.tsx'
 import Dashboard from './pages/admin/Dashboard.tsx'
+import Testimony from './pages/Testimony.tsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: '/contactanos',
     element: <ContactUs />
+  },
+  {
+    path: '/testimonies',
+    element: <Testimony />
   },
   {
     path: '/opiniones',

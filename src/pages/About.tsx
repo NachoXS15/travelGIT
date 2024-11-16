@@ -4,7 +4,7 @@ export default function About() {
   return (
     <Layout>
       <section className="w-full h-[350px] bg-cover bg-center"
-        style={{ backgroundImage: `url("https://www.10wallpaper.com/wallpaper/1920x1080/1410/Best_Nature_Views-Scenery_HD_Wallpaper_1920x1080.jpg")` }}>
+        style={{ backgroundImage: `url("https://i0.wp.com/vacacionesporargentina.com/wp-content/uploads/2020/11/waterfall-5040210_1920.jpg?fit=1920%2C1272&ssl=1")` }}>
         <div className="w-full h-full flex justify-center items-center bg-bluesec bg-opacity-70">
           <p className="text-white text-4xl font-semibold md:text-7xl" style={{ fontFamily: 'Mundial' }}>NOSOTROS</p>
         </div>
