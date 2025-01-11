@@ -58,7 +58,6 @@ export default function Login() {
                         <label className="text-md" htmlFor="session">Mantener sesión activada</label>
                     </div>
                 </form>
-                <NavLink className="text-center text-bluesec text-xl underline" to="/admin/menu">¿Olvidó su contraseña?</NavLink>
             </div>
         </>
     )
