@@ -14,6 +14,7 @@ import Opinions from './pages/Opinions.tsx'
 import Login from './pages/admin/Login.tsx'
 import Dashboard from './pages/admin/Dashboard.tsx'
 import Testimony from './pages/Testimony.tsx'
+import CheckUser from './pages/admin/CheckUser.tsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -57,8 +58,11 @@ const router = createBrowserRouter([
     element: <Login />
   },
   {
-    path: '/admin/dashboard',
-    element: <Dashboard />
+    path: '/admin/check',
+    element: <CheckUser />,
+    children: [
+      { path: "dashboard", element: <Dashboard /> },
+    ],
   },
 ])
 

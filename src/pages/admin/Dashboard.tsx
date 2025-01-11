@@ -9,19 +9,21 @@ import PromotedTag from "../../components/ui/PromotedTag";
 import CreatePackage from "./CreatePackage";
 import DeletePackage from "./DeletePackage";
 import EditPackage from "./EditPackage";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
 // import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
   const [packages, setPackages] = useState<PackageProps[]>([])
   const [search, setSearch] = useState<string | undefined>("")
-  console.log(search);
   const filteredPackages = search ? packages.filter(pkg => pkg.destino.toLowerCase().includes(search.toLowerCase())) : packages;
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [selectedID, setSelectedID] = useState<string>("")
   const [selectedName, setSelectedName] = useState<string>("")
+  const navigate = useNavigate();
   
 
   const db = getFirestore();
@@ -70,19 +72,19 @@ export default function Dashboard() {
     setSearch("");
   }
 
-  // const auth = getAuth();
-  // useEffect(() => {
+  const auth = getAuth();
+  useEffect(() => {
 
-  //   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-  //     if (currentUser) {
-  //       console.log('User exists')
-  //     } else {
-  //       navigate('../administracion')
-  //     }
-  //   });
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        return;
+      } else {
+        navigate('/admin/login')
+      }
+    });
 
-  //   return () => unsubscribe();
-  // }, [auth, navigate])
+    return () => unsubscribe();
+  }, [auth, navigate])
 
   return (
     <>
