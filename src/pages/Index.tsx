@@ -7,9 +7,12 @@ import { Slides, Texts } from "../config/IndexInfo";
 import { getFirestore, getDocs, collection } from 'firebase/firestore';
 import Loader from "../components/ui/loaders/Loader";
 import CardGroup from "../components/ui/CardGroup";
+import flyerPromocion from '../assets/mdq.png'
+import { Cancel } from "../components/ui/Icons";
 
 export default function Index() {
   const [packages, setPackages] = useState<PackageProps[]>([]);
+  const [showPopup, setShowPopup] = useState(true)
 
   const db = getFirestore();
   const fetchData = async () => {
@@ -28,6 +31,20 @@ export default function Index() {
   useEffect(() => {
     fetchData();
   }, []);
+
+
+  useEffect(() => {
+    if (showPopup) {
+      document.body.classList.add("overflow-hidden") 
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }else{
+      document.body.classList.remove("overflow-hidden") 
+    }
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [showPopup])
 
   const promotedPackages = packages.filter(item => item.isPromoted)
 
@@ -54,6 +71,16 @@ export default function Index() {
           </div>
         </section>
       </main>
+      {
+        showPopup && (
+          <div className="overflow-none min-h-screen w-full bg-black bg-opacity-60 fixed flex-col flex items-center justify-center">
+            <div className="relative">
+              <button onClick={() => setShowPopup(false)} className="bg-white rounded-full absolute -right-2 -top-5"><Cancel stroke={3.2} /></button>
+              <img src={flyerPromocion} width={300} alt="" />
+            </div>
+          </div>
+        )
+      }
     </Layout>
   )
 }
