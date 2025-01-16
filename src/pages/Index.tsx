@@ -7,7 +7,7 @@ import { Slides, Texts } from "../config/IndexInfo";
 import { getFirestore, getDocs, collection } from 'firebase/firestore';
 import Loader from "../components/ui/loaders/Loader";
 import CardGroup from "../components/ui/CardGroup";
-import flyerPromocion from '../assets/mdq.png'
+import flyerPromocion from '../assets/mdq.webp'
 import { Cancel } from "../components/ui/Icons";
 
 export default function Index() {
