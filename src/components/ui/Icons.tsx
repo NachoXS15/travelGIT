@@ -1,6 +1,7 @@
 type props = {
-    color: string,
-    size: number
+    color?: string,
+    size?: number
+    stroke?: number
 }
 
 export function MenuIcon() {
@@ -139,9 +140,9 @@ export function Search() {
         </svg>
     )
 }
-export function Cancel() {
+export function Cancel({stroke}: props) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#0a77be" className="size-7">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={stroke} stroke="#0a77be" className="size-7">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
         </svg>
     )

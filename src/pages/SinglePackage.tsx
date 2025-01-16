@@ -79,22 +79,6 @@ export default function SinglePackage() {
 					>
 						<div className="w-full md:w-4/5 px-0 flex flex-col md:gap-20 md:flex-row-reverse">
 							<div className="w-full px-0 md:w-1/2 relative">
-								{/* <div className="sm:hidden md:absolute md:inset-0 md:flex md:items-center md:justify-between md:px-4 md:z-10">
-									<button
-										onClick={handlePrev}
-										className="p-2 shadow cursor-pointer bg-white rounded-full hover:bg-opacity-100"
-									>
-										<LeftArrowIcon />
-									</button>
-									<button
-										onClick={handleNext}
-										className="p-2 shadow cursor-pointer bg-white rounded-full hover:bg-opacity-100"
-									>
-										<RightArrowIcon />
-									</button>
-								</div> */}
-
-								{/* Carrusel de imágenes */}
 								<div className="relative px-0 w-full h-72 md:h-96 overflow-hidden md:rounded-2xl">
 									<div
 										className="w-full h-full flex transition-transform duration-700 ease-in-out"
