@@ -7,12 +7,12 @@ import { Slides, Texts } from "../config/IndexInfo";
 import { getFirestore, getDocs, collection } from 'firebase/firestore';
 import Loader from "../components/ui/loaders/Loader";
 import CardGroup from "../components/ui/CardGroup";
-import flyerPromocion from '../assets/mdq.png'
+import flyerPromocion from '../assets/mdq.webp'
 import { Cancel } from "../components/ui/Icons";
 
 export default function Index() {
   const [packages, setPackages] = useState<PackageProps[]>([]);
-  const [showPopup, setShowPopup] = useState(true)
+  const [showPopup, setShowPopup] = useState<boolean>(true)
 
   const db = getFirestore();
   const fetchData = async () => {
@@ -75,8 +75,8 @@ export default function Index() {
         showPopup && (
           <div className="overflow-none min-h-screen w-full bg-black bg-opacity-60 fixed flex-col flex items-center justify-center">
             <div className="relative">
-              <button onClick={() => setShowPopup(false)} className="bg-white rounded-full absolute -right-2 -top-5"><Cancel stroke={3.2} /></button>
-              <img src={flyerPromocion} width={300} alt="" />
+              <button onClick={() => setShowPopup(!showPopup)} className="bg-white rounded-full absolute -right-2 -top-5 cursor-pointer hover:scale-105 transition"><Cancel stroke={3.2} /></button>
+              <a href="https://travelgit.tur.ar/paquete/UqVfbCw2Y75yimpuR3hZ"><img src={flyerPromocion} width={300} alt="" /></a>
             </div>
           </div>
         )
