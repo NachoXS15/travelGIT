@@ -50,8 +50,8 @@ export default function Index() {
 
   return (
     <Layout>
-      <main>
-        <section className="max-w-full h-fit mb-5">
+      <main >
+        <section className="max-w-full h-fit mb-5 user-select-none">
           <Slider images={Slides} text={Texts} />
         </section>
         <CardGroup />
@@ -73,9 +73,11 @@ export default function Index() {
       </main>
       {
         showPopup && (
-          <div className="min-h-screen w-full bg-black bg-opacity-60 fixed flex-col flex items-center justify-center">
+          <div onClick={() => setShowPopup(!showPopup)} className="min-h-screen w-full z-50 bg-black bg-opacity-60 fixed grid grid-cols-1 place-items-center">
             <div className="relative">
-              <button onClick={() => setShowPopup(!showPopup)} className="bg-white rounded-full relative right-0  cursor-pointer hover:scale-105 transition"><Cancel size={70} stroke={3.2} /></button>
+              <div className="w-fit h-fit cursor-pointer hover:scale-105 transition" >
+                <button className="bg-white rounded-full relative right-0"><Cancel size={40} stroke={3.2} /></button>
+              </div>
               <img src={flyerPromocion} className="w-64 xl:w-80" alt="" />
               <p className="text-center">
                 <a style={{fontFamily: 'Mundial'}} className="w-fit h-fit underline text-white text-center text-3xl" title="linkPaquete" href="https://travelgit.tur.ar/paquete/UqVfbCw2Y75yimpuR3hZ">Ver paquete</a>
