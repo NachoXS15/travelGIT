@@ -76,7 +76,7 @@ export default function Index() {
           <div className="min-h-screen w-full bg-black bg-opacity-60 fixed flex-col flex items-center justify-center">
             <div className="relative">
               <button onClick={() => setShowPopup(!showPopup)} className="bg-white rounded-full relative right-0  cursor-pointer hover:scale-105 transition"><Cancel size={70} stroke={3.2} /></button>
-              <img src={flyerPromocion} className="w-96 xl:w-80" alt="" />
+              <img src={flyerPromocion} className="w-64 xl:w-80" alt="" />
               <p className="text-center">
                 <a style={{fontFamily: 'Mundial'}} className="w-fit h-fit underline text-white text-center text-3xl" title="linkPaquete" href="https://travelgit.tur.ar/paquete/UqVfbCw2Y75yimpuR3hZ">Ver paquete</a>
               </p>
