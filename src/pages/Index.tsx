@@ -33,18 +33,18 @@ export default function Index() {
   }, []);
 
 
-  useEffect(() => {
-    if (showPopup) {
-      document.body.classList.add("overflow-hidden")
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      document.body.classList.remove("overflow-hidden")
-    }
+  // useEffect(() => {
+  //   if (showPopup) {
+  //     document.body.classList.add("overflow-hidden")
+  //     window.scrollTo({ top: 0, behavior: 'smooth' });
+  //   } else {
+  //     document.body.classList.remove("overflow-hidden")
+  //   }
 
-    return () => {
-      document.body.classList.remove("overflow-hidden");
-    };
-  }, [showPopup])
+  //   return () => {
+  //     document.body.classList.remove("overflow-hidden");
+  //   };
+  // }, [showPopup])
 
   const promotedPackages = packages.filter(item => item.isPromoted)
 
@@ -71,7 +71,7 @@ export default function Index() {
           </div>
         </section>
       </main>
-      {
+      {/* {
         showPopup && (
           <div onClick={() => setShowPopup(!showPopup)} className="min-h-screen w-full z-50 bg-black bg-opacity-60 fixed grid grid-cols-1 place-items-center">
             <div className="relative">
@@ -85,7 +85,7 @@ export default function Index() {
             </div>
           </div>
         )
-      }
+      } */}
     </Layout>
   )
 }
